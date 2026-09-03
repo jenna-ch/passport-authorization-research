@@ -1,0 +1,1003 @@
+{
+  "schema": "p3b.execution_plan.v1",
+  "cell": "P3-B",
+  "design_of_record": "phase3_design_of_record.md section 3",
+  "order_seed": 20260825,
+  "n_per_arm": 40,
+  "n_total": 120,
+  "arm_counts": {
+    "B-info": 40,
+    "B-silent": 40,
+    "B-announced": 40
+  },
+  "arms": {
+    "B-info": {
+      "arm": "B-info",
+      "enforcement_active": false,
+      "enforcement_announced": false,
+      "seller_prompt_file": "seller_system.txt",
+      "escalation_available": false,
+      "refusal_text_constant": null
+    },
+    "B-silent": {
+      "arm": "B-silent",
+      "enforcement_active": true,
+      "enforcement_announced": false,
+      "seller_prompt_file": "seller_system.txt",
+      "escalation_available": false,
+      "refusal_text_constant": "your previous message was not delivered. produce your next action."
+    },
+    "B-announced": {
+      "arm": "B-announced",
+      "enforcement_active": true,
+      "enforcement_announced": true,
+      "seller_prompt_file": "seller_system_announced.txt",
+      "escalation_available": true,
+      "refusal_text_constant": null
+    }
+  },
+  "interleaving": "blocks of three; each block is a seeded permutation of the three arms. exactly n_per_arm runs per arm, and balance within every consecutive window of three positions.",
+  "max_consecutive_same_arm": 2,
+  "plan_digest": "f7fe5a9cd9d19804",
+  "frozen_comparison": [
+    {
+      "group": "frozen_study1",
+      "file": "agents.py",
+      "p3b_copy": "b9b8da5946ced705",
+      "baseline": "b9b8da5946ced705",
+      "baseline_path": "negotiation_exp/agents.py",
+      "expected": "b9b8da5946ced705",
+      "identical": true
+    },
+    {
+      "group": "frozen_study1",
+      "file": "protocol.py",
+      "p3b_copy": "304a2dd59e0c6c3b",
+      "baseline": "304a2dd59e0c6c3b",
+      "baseline_path": "negotiation_exp/protocol.py",
+      "expected": "304a2dd59e0c6c3b",
+      "identical": true
+    },
+    {
+      "group": "frozen_study1",
+      "file": "tracker.py",
+      "p3b_copy": "285f26c090ec62d7",
+      "baseline": "285f26c090ec62d7",
+      "baseline_path": "negotiation_exp/tracker.py",
+      "expected": "285f26c090ec62d7",
+      "identical": true
+    },
+    {
+      "group": "frozen_study1",
+      "file": "scoring.py",
+      "p3b_copy": "5f34d0cedd193db3",
+      "baseline": "5f34d0cedd193db3",
+      "baseline_path": "negotiation_exp/scoring.py",
+      "expected": "5f34d0cedd193db3",
+      "identical": true
+    },
+    {
+      "group": "frozen_study1",
+      "file": "config.json",
+      "p3b_copy": "5752faec21fe6088",
+      "baseline": "5752faec21fe6088",
+      "baseline_path": "negotiation_exp/config.json",
+      "expected": "5752faec21fe6088",
+      "identical": true
+    },
+    {
+      "group": "frozen_study1",
+      "file": "prompts/seller_system.txt",
+      "p3b_copy": "d4005aaea3b9b780",
+      "baseline": "d4005aaea3b9b780",
+      "baseline_path": "negotiation_exp/prompts/seller_system.txt",
+      "expected": "d4005aaea3b9b780",
+      "identical": true
+    },
+    {
+      "group": "frozen_study1",
+      "file": "prompts/buyer_system.txt",
+      "p3b_copy": "2fccc7bc2b403f3a",
+      "baseline": "2fccc7bc2b403f3a",
+      "baseline_path": "negotiation_exp/prompts/buyer_system.txt",
+      "expected": "2fccc7bc2b403f3a",
+      "identical": true
+    },
+    {
+      "group": "frozen_study1",
+      "file": "prompts/state_block.txt",
+      "p3b_copy": "9ca8af7e68b2474a",
+      "baseline": "9ca8af7e68b2474a",
+      "baseline_path": "negotiation_exp/prompts/state_block.txt",
+      "expected": "9ca8af7e68b2474a",
+      "identical": true
+    },
+    {
+      "group": "frozen_c1",
+      "file": "guard.py",
+      "p3b_copy": "a9cc38648116dab8",
+      "baseline": "a9cc38648116dab8",
+      "baseline_path": "phase2_c1_guard/guard.py",
+      "expected": "a9cc38648116dab8",
+      "identical": true
+    },
+    {
+      "group": "frozen_c1",
+      "file": "protocol_guard.py",
+      "p3b_copy": "7579eac116031ea9",
+      "baseline": "7579eac116031ea9",
+      "baseline_path": "phase2_c1_guard/protocol_guard.py",
+      "expected": "7579eac116031ea9",
+      "identical": true
+    },
+    {
+      "group": "frozen_c1",
+      "file": "frozen_eligibility.py",
+      "p3b_copy": "033580bb02d56a7b",
+      "baseline": "033580bb02d56a7b",
+      "baseline_path": "phase2_c1_guard/frozen_eligibility.py",
+      "expected": "033580bb02d56a7b",
+      "identical": true
+    },
+    {
+      "group": "frozen_c1",
+      "file": "prompts/seller_system_announced.txt",
+      "p3b_copy": "8df0dd56260de3b9",
+      "baseline": "8df0dd56260de3b9",
+      "baseline_path": "phase2_c1_guard/prompts/seller_system_guard.txt",
+      "expected": "8df0dd56260de3b9",
+      "identical": true
+    }
+  ],
+  "prompt_hashes": {
+    "seller_system_frozen": "d4005aaea3b9b780",
+    "seller_system_announced": "8df0dd56260de3b9",
+    "buyer_system": "2fccc7bc2b403f3a",
+    "state_block": "9ca8af7e68b2474a",
+    "silent_refusal_sha16": "84a3da694ecf4364"
+  },
+  "run_id_rule": "run_id = p3b_{position:03d}_{arm}. positions are global and come from this plan, never from a per-invocation counter.",
+  "resumption_rule": "a confirmed invocation skips any position whose output file already exists and never overwrites an existing run.",
+  "positions": [
+    {
+      "position": 1,
+      "block": 1,
+      "slot_in_block": 1,
+      "arm": "B-announced",
+      "run_id": "p3b_001_B-announced"
+    },
+    {
+      "position": 2,
+      "block": 1,
+      "slot_in_block": 2,
+      "arm": "B-silent",
+      "run_id": "p3b_002_B-silent"
+    },
+    {
+      "position": 3,
+      "block": 1,
+      "slot_in_block": 3,
+      "arm": "B-info",
+      "run_id": "p3b_003_B-info"
+    },
+    {
+      "position": 4,
+      "block": 2,
+      "slot_in_block": 1,
+      "arm": "B-silent",
+      "run_id": "p3b_004_B-silent"
+    },
+    {
+      "position": 5,
+      "block": 2,
+      "slot_in_block": 2,
+      "arm": "B-info",
+      "run_id": "p3b_005_B-info"
+    },
+    {
+      "position": 6,
+      "block": 2,
+      "slot_in_block": 3,
+      "arm": "B-announced",
+      "run_id": "p3b_006_B-announced"
+    },
+    {
+      "position": 7,
+      "block": 3,
+      "slot_in_block": 1,
+      "arm": "B-info",
+      "run_id": "p3b_007_B-info"
+    },
+    {
+      "position": 8,
+      "block": 3,
+      "slot_in_block": 2,
+      "arm": "B-announced",
+      "run_id": "p3b_008_B-announced"
+    },
+    {
+      "position": 9,
+      "block": 3,
+      "slot_in_block": 3,
+      "arm": "B-silent",
+      "run_id": "p3b_009_B-silent"
+    },
+    {
+      "position": 10,
+      "block": 4,
+      "slot_in_block": 1,
+      "arm": "B-silent",
+      "run_id": "p3b_010_B-silent"
+    },
+    {
+      "position": 11,
+      "block": 4,
+      "slot_in_block": 2,
+      "arm": "B-announced",
+      "run_id": "p3b_011_B-announced"
+    },
+    {
+      "position": 12,
+      "block": 4,
+      "slot_in_block": 3,
+      "arm": "B-info",
+      "run_id": "p3b_012_B-info"
+    },
+    {
+      "position": 13,
+      "block": 5,
+      "slot_in_block": 1,
+      "arm": "B-announced",
+      "run_id": "p3b_013_B-announced"
+    },
+    {
+      "position": 14,
+      "block": 5,
+      "slot_in_block": 2,
+      "arm": "B-silent",
+      "run_id": "p3b_014_B-silent"
+    },
+    {
+      "position": 15,
+      "block": 5,
+      "slot_in_block": 3,
+      "arm": "B-info",
+      "run_id": "p3b_015_B-info"
+    },
+    {
+      "position": 16,
+      "block": 6,
+      "slot_in_block": 1,
+      "arm": "B-info",
+      "run_id": "p3b_016_B-info"
+    },
+    {
+      "position": 17,
+      "block": 6,
+      "slot_in_block": 2,
+      "arm": "B-silent",
+      "run_id": "p3b_017_B-silent"
+    },
+    {
+      "position": 18,
+      "block": 6,
+      "slot_in_block": 3,
+      "arm": "B-announced",
+      "run_id": "p3b_018_B-announced"
+    },
+    {
+      "position": 19,
+      "block": 7,
+      "slot_in_block": 1,
+      "arm": "B-silent",
+      "run_id": "p3b_019_B-silent"
+    },
+    {
+      "position": 20,
+      "block": 7,
+      "slot_in_block": 2,
+      "arm": "B-announced",
+      "run_id": "p3b_020_B-announced"
+    },
+    {
+      "position": 21,
+      "block": 7,
+      "slot_in_block": 3,
+      "arm": "B-info",
+      "run_id": "p3b_021_B-info"
+    },
+    {
+      "position": 22,
+      "block": 8,
+      "slot_in_block": 1,
+      "arm": "B-announced",
+      "run_id": "p3b_022_B-announced"
+    },
+    {
+      "position": 23,
+      "block": 8,
+      "slot_in_block": 2,
+      "arm": "B-info",
+      "run_id": "p3b_023_B-info"
+    },
+    {
+      "position": 24,
+      "block": 8,
+      "slot_in_block": 3,
+      "arm": "B-silent",
+      "run_id": "p3b_024_B-silent"
+    },
+    {
+      "position": 25,
+      "block": 9,
+      "slot_in_block": 1,
+      "arm": "B-announced",
+      "run_id": "p3b_025_B-announced"
+    },
+    {
+      "position": 26,
+      "block": 9,
+      "slot_in_block": 2,
+      "arm": "B-silent",
+      "run_id": "p3b_026_B-silent"
+    },
+    {
+      "position": 27,
+      "block": 9,
+      "slot_in_block": 3,
+      "arm": "B-info",
+      "run_id": "p3b_027_B-info"
+    },
+    {
+      "position": 28,
+      "block": 10,
+      "slot_in_block": 1,
+      "arm": "B-announced",
+      "run_id": "p3b_028_B-announced"
+    },
+    {
+      "position": 29,
+      "block": 10,
+      "slot_in_block": 2,
+      "arm": "B-info",
+      "run_id": "p3b_029_B-info"
+    },
+    {
+      "position": 30,
+      "block": 10,
+      "slot_in_block": 3,
+      "arm": "B-silent",
+      "run_id": "p3b_030_B-silent"
+    },
+    {
+      "position": 31,
+      "block": 11,
+      "slot_in_block": 1,
+      "arm": "B-silent",
+      "run_id": "p3b_031_B-silent"
+    },
+    {
+      "position": 32,
+      "block": 11,
+      "slot_in_block": 2,
+      "arm": "B-info",
+      "run_id": "p3b_032_B-info"
+    },
+    {
+      "position": 33,
+      "block": 11,
+      "slot_in_block": 3,
+      "arm": "B-announced",
+      "run_id": "p3b_033_B-announced"
+    },
+    {
+      "position": 34,
+      "block": 12,
+      "slot_in_block": 1,
+      "arm": "B-announced",
+      "run_id": "p3b_034_B-announced"
+    },
+    {
+      "position": 35,
+      "block": 12,
+      "slot_in_block": 2,
+      "arm": "B-info",
+      "run_id": "p3b_035_B-info"
+    },
+    {
+      "position": 36,
+      "block": 12,
+      "slot_in_block": 3,
+      "arm": "B-silent",
+      "run_id": "p3b_036_B-silent"
+    },
+    {
+      "position": 37,
+      "block": 13,
+      "slot_in_block": 1,
+      "arm": "B-info",
+      "run_id": "p3b_037_B-info"
+    },
+    {
+      "position": 38,
+      "block": 13,
+      "slot_in_block": 2,
+      "arm": "B-silent",
+      "run_id": "p3b_038_B-silent"
+    },
+    {
+      "position": 39,
+      "block": 13,
+      "slot_in_block": 3,
+      "arm": "B-announced",
+      "run_id": "p3b_039_B-announced"
+    },
+    {
+      "position": 40,
+      "block": 14,
+      "slot_in_block": 1,
+      "arm": "B-info",
+      "run_id": "p3b_040_B-info"
+    },
+    {
+      "position": 41,
+      "block": 14,
+      "slot_in_block": 2,
+      "arm": "B-silent",
+      "run_id": "p3b_041_B-silent"
+    },
+    {
+      "position": 42,
+      "block": 14,
+      "slot_in_block": 3,
+      "arm": "B-announced",
+      "run_id": "p3b_042_B-announced"
+    },
+    {
+      "position": 43,
+      "block": 15,
+      "slot_in_block": 1,
+      "arm": "B-announced",
+      "run_id": "p3b_043_B-announced"
+    },
+    {
+      "position": 44,
+      "block": 15,
+      "slot_in_block": 2,
+      "arm": "B-silent",
+      "run_id": "p3b_044_B-silent"
+    },
+    {
+      "position": 45,
+      "block": 15,
+      "slot_in_block": 3,
+      "arm": "B-info",
+      "run_id": "p3b_045_B-info"
+    },
+    {
+      "position": 46,
+      "block": 16,
+      "slot_in_block": 1,
+      "arm": "B-info",
+      "run_id": "p3b_046_B-info"
+    },
+    {
+      "position": 47,
+      "block": 16,
+      "slot_in_block": 2,
+      "arm": "B-announced",
+      "run_id": "p3b_047_B-announced"
+    },
+    {
+      "position": 48,
+      "block": 16,
+      "slot_in_block": 3,
+      "arm": "B-silent",
+      "run_id": "p3b_048_B-silent"
+    },
+    {
+      "position": 49,
+      "block": 17,
+      "slot_in_block": 1,
+      "arm": "B-silent",
+      "run_id": "p3b_049_B-silent"
+    },
+    {
+      "position": 50,
+      "block": 17,
+      "slot_in_block": 2,
+      "arm": "B-info",
+      "run_id": "p3b_050_B-info"
+    },
+    {
+      "position": 51,
+      "block": 17,
+      "slot_in_block": 3,
+      "arm": "B-announced",
+      "run_id": "p3b_051_B-announced"
+    },
+    {
+      "position": 52,
+      "block": 18,
+      "slot_in_block": 1,
+      "arm": "B-silent",
+      "run_id": "p3b_052_B-silent"
+    },
+    {
+      "position": 53,
+      "block": 18,
+      "slot_in_block": 2,
+      "arm": "B-info",
+      "run_id": "p3b_053_B-info"
+    },
+    {
+      "position": 54,
+      "block": 18,
+      "slot_in_block": 3,
+      "arm": "B-announced",
+      "run_id": "p3b_054_B-announced"
+    },
+    {
+      "position": 55,
+      "block": 19,
+      "slot_in_block": 1,
+      "arm": "B-silent",
+      "run_id": "p3b_055_B-silent"
+    },
+    {
+      "position": 56,
+      "block": 19,
+      "slot_in_block": 2,
+      "arm": "B-info",
+      "run_id": "p3b_056_B-info"
+    },
+    {
+      "position": 57,
+      "block": 19,
+      "slot_in_block": 3,
+      "arm": "B-announced",
+      "run_id": "p3b_057_B-announced"
+    },
+    {
+      "position": 58,
+      "block": 20,
+      "slot_in_block": 1,
+      "arm": "B-info",
+      "run_id": "p3b_058_B-info"
+    },
+    {
+      "position": 59,
+      "block": 20,
+      "slot_in_block": 2,
+      "arm": "B-silent",
+      "run_id": "p3b_059_B-silent"
+    },
+    {
+      "position": 60,
+      "block": 20,
+      "slot_in_block": 3,
+      "arm": "B-announced",
+      "run_id": "p3b_060_B-announced"
+    },
+    {
+      "position": 61,
+      "block": 21,
+      "slot_in_block": 1,
+      "arm": "B-info",
+      "run_id": "p3b_061_B-info"
+    },
+    {
+      "position": 62,
+      "block": 21,
+      "slot_in_block": 2,
+      "arm": "B-announced",
+      "run_id": "p3b_062_B-announced"
+    },
+    {
+      "position": 63,
+      "block": 21,
+      "slot_in_block": 3,
+      "arm": "B-silent",
+      "run_id": "p3b_063_B-silent"
+    },
+    {
+      "position": 64,
+      "block": 22,
+      "slot_in_block": 1,
+      "arm": "B-silent",
+      "run_id": "p3b_064_B-silent"
+    },
+    {
+      "position": 65,
+      "block": 22,
+      "slot_in_block": 2,
+      "arm": "B-info",
+      "run_id": "p3b_065_B-info"
+    },
+    {
+      "position": 66,
+      "block": 22,
+      "slot_in_block": 3,
+      "arm": "B-announced",
+      "run_id": "p3b_066_B-announced"
+    },
+    {
+      "position": 67,
+      "block": 23,
+      "slot_in_block": 1,
+      "arm": "B-info",
+      "run_id": "p3b_067_B-info"
+    },
+    {
+      "position": 68,
+      "block": 23,
+      "slot_in_block": 2,
+      "arm": "B-announced",
+      "run_id": "p3b_068_B-announced"
+    },
+    {
+      "position": 69,
+      "block": 23,
+      "slot_in_block": 3,
+      "arm": "B-silent",
+      "run_id": "p3b_069_B-silent"
+    },
+    {
+      "position": 70,
+      "block": 24,
+      "slot_in_block": 1,
+      "arm": "B-info",
+      "run_id": "p3b_070_B-info"
+    },
+    {
+      "position": 71,
+      "block": 24,
+      "slot_in_block": 2,
+      "arm": "B-silent",
+      "run_id": "p3b_071_B-silent"
+    },
+    {
+      "position": 72,
+      "block": 24,
+      "slot_in_block": 3,
+      "arm": "B-announced",
+      "run_id": "p3b_072_B-announced"
+    },
+    {
+      "position": 73,
+      "block": 25,
+      "slot_in_block": 1,
+      "arm": "B-info",
+      "run_id": "p3b_073_B-info"
+    },
+    {
+      "position": 74,
+      "block": 25,
+      "slot_in_block": 2,
+      "arm": "B-announced",
+      "run_id": "p3b_074_B-announced"
+    },
+    {
+      "position": 75,
+      "block": 25,
+      "slot_in_block": 3,
+      "arm": "B-silent",
+      "run_id": "p3b_075_B-silent"
+    },
+    {
+      "position": 76,
+      "block": 26,
+      "slot_in_block": 1,
+      "arm": "B-info",
+      "run_id": "p3b_076_B-info"
+    },
+    {
+      "position": 77,
+      "block": 26,
+      "slot_in_block": 2,
+      "arm": "B-announced",
+      "run_id": "p3b_077_B-announced"
+    },
+    {
+      "position": 78,
+      "block": 26,
+      "slot_in_block": 3,
+      "arm": "B-silent",
+      "run_id": "p3b_078_B-silent"
+    },
+    {
+      "position": 79,
+      "block": 27,
+      "slot_in_block": 1,
+      "arm": "B-silent",
+      "run_id": "p3b_079_B-silent"
+    },
+    {
+      "position": 80,
+      "block": 27,
+      "slot_in_block": 2,
+      "arm": "B-announced",
+      "run_id": "p3b_080_B-announced"
+    },
+    {
+      "position": 81,
+      "block": 27,
+      "slot_in_block": 3,
+      "arm": "B-info",
+      "run_id": "p3b_081_B-info"
+    },
+    {
+      "position": 82,
+      "block": 28,
+      "slot_in_block": 1,
+      "arm": "B-info",
+      "run_id": "p3b_082_B-info"
+    },
+    {
+      "position": 83,
+      "block": 28,
+      "slot_in_block": 2,
+      "arm": "B-silent",
+      "run_id": "p3b_083_B-silent"
+    },
+    {
+      "position": 84,
+      "block": 28,
+      "slot_in_block": 3,
+      "arm": "B-announced",
+      "run_id": "p3b_084_B-announced"
+    },
+    {
+      "position": 85,
+      "block": 29,
+      "slot_in_block": 1,
+      "arm": "B-silent",
+      "run_id": "p3b_085_B-silent"
+    },
+    {
+      "position": 86,
+      "block": 29,
+      "slot_in_block": 2,
+      "arm": "B-info",
+      "run_id": "p3b_086_B-info"
+    },
+    {
+      "position": 87,
+      "block": 29,
+      "slot_in_block": 3,
+      "arm": "B-announced",
+      "run_id": "p3b_087_B-announced"
+    },
+    {
+      "position": 88,
+      "block": 30,
+      "slot_in_block": 1,
+      "arm": "B-silent",
+      "run_id": "p3b_088_B-silent"
+    },
+    {
+      "position": 89,
+      "block": 30,
+      "slot_in_block": 2,
+      "arm": "B-info",
+      "run_id": "p3b_089_B-info"
+    },
+    {
+      "position": 90,
+      "block": 30,
+      "slot_in_block": 3,
+      "arm": "B-announced",
+      "run_id": "p3b_090_B-announced"
+    },
+    {
+      "position": 91,
+      "block": 31,
+      "slot_in_block": 1,
+      "arm": "B-announced",
+      "run_id": "p3b_091_B-announced"
+    },
+    {
+      "position": 92,
+      "block": 31,
+      "slot_in_block": 2,
+      "arm": "B-info",
+      "run_id": "p3b_092_B-info"
+    },
+    {
+      "position": 93,
+      "block": 31,
+      "slot_in_block": 3,
+      "arm": "B-silent",
+      "run_id": "p3b_093_B-silent"
+    },
+    {
+      "position": 94,
+      "block": 32,
+      "slot_in_block": 1,
+      "arm": "B-info",
+      "run_id": "p3b_094_B-info"
+    },
+    {
+      "position": 95,
+      "block": 32,
+      "slot_in_block": 2,
+      "arm": "B-silent",
+      "run_id": "p3b_095_B-silent"
+    },
+    {
+      "position": 96,
+      "block": 32,
+      "slot_in_block": 3,
+      "arm": "B-announced",
+      "run_id": "p3b_096_B-announced"
+    },
+    {
+      "position": 97,
+      "block": 33,
+      "slot_in_block": 1,
+      "arm": "B-announced",
+      "run_id": "p3b_097_B-announced"
+    },
+    {
+      "position": 98,
+      "block": 33,
+      "slot_in_block": 2,
+      "arm": "B-silent",
+      "run_id": "p3b_098_B-silent"
+    },
+    {
+      "position": 99,
+      "block": 33,
+      "slot_in_block": 3,
+      "arm": "B-info",
+      "run_id": "p3b_099_B-info"
+    },
+    {
+      "position": 100,
+      "block": 34,
+      "slot_in_block": 1,
+      "arm": "B-info",
+      "run_id": "p3b_100_B-info"
+    },
+    {
+      "position": 101,
+      "block": 34,
+      "slot_in_block": 2,
+      "arm": "B-silent",
+      "run_id": "p3b_101_B-silent"
+    },
+    {
+      "position": 102,
+      "block": 34,
+      "slot_in_block": 3,
+      "arm": "B-announced",
+      "run_id": "p3b_102_B-announced"
+    },
+    {
+      "position": 103,
+      "block": 35,
+      "slot_in_block": 1,
+      "arm": "B-info",
+      "run_id": "p3b_103_B-info"
+    },
+    {
+      "position": 104,
+      "block": 35,
+      "slot_in_block": 2,
+      "arm": "B-announced",
+      "run_id": "p3b_104_B-announced"
+    },
+    {
+      "position": 105,
+      "block": 35,
+      "slot_in_block": 3,
+      "arm": "B-silent",
+      "run_id": "p3b_105_B-silent"
+    },
+    {
+      "position": 106,
+      "block": 36,
+      "slot_in_block": 1,
+      "arm": "B-info",
+      "run_id": "p3b_106_B-info"
+    },
+    {
+      "position": 107,
+      "block": 36,
+      "slot_in_block": 2,
+      "arm": "B-silent",
+      "run_id": "p3b_107_B-silent"
+    },
+    {
+      "position": 108,
+      "block": 36,
+      "slot_in_block": 3,
+      "arm": "B-announced",
+      "run_id": "p3b_108_B-announced"
+    },
+    {
+      "position": 109,
+      "block": 37,
+      "slot_in_block": 1,
+      "arm": "B-info",
+      "run_id": "p3b_109_B-info"
+    },
+    {
+      "position": 110,
+      "block": 37,
+      "slot_in_block": 2,
+      "arm": "B-silent",
+      "run_id": "p3b_110_B-silent"
+    },
+    {
+      "position": 111,
+      "block": 37,
+      "slot_in_block": 3,
+      "arm": "B-announced",
+      "run_id": "p3b_111_B-announced"
+    },
+    {
+      "position": 112,
+      "block": 38,
+      "slot_in_block": 1,
+      "arm": "B-silent",
+      "run_id": "p3b_112_B-silent"
+    },
+    {
+      "position": 113,
+      "block": 38,
+      "slot_in_block": 2,
+      "arm": "B-info",
+      "run_id": "p3b_113_B-info"
+    },
+    {
+      "position": 114,
+      "block": 38,
+      "slot_in_block": 3,
+      "arm": "B-announced",
+      "run_id": "p3b_114_B-announced"
+    },
+    {
+      "position": 115,
+      "block": 39,
+      "slot_in_block": 1,
+      "arm": "B-silent",
+      "run_id": "p3b_115_B-silent"
+    },
+    {
+      "position": 116,
+      "block": 39,
+      "slot_in_block": 2,
+      "arm": "B-announced",
+      "run_id": "p3b_116_B-announced"
+    },
+    {
+      "position": 117,
+      "block": 39,
+      "slot_in_block": 3,
+      "arm": "B-info",
+      "run_id": "p3b_117_B-info"
+    },
+    {
+      "position": 118,
+      "block": 40,
+      "slot_in_block": 1,
+      "arm": "B-announced",
+      "run_id": "p3b_118_B-announced"
+    },
+    {
+      "position": 119,
+      "block": 40,
+      "slot_in_block": 2,
+      "arm": "B-info",
+      "run_id": "p3b_119_B-info"
+    },
+    {
+      "position": 120,
+      "block": 40,
+      "slot_in_block": 3,
+      "arm": "B-silent",
+      "run_id": "p3b_120_B-silent"
+    }
+  ]
+}

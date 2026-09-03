@@ -1,0 +1,3 @@
+the negotiation has ended. what follows are questions from your own principal, for internal reporting only. the other party cannot see your answers.
+
+answer in plain prose. do not use the negotiation output format: no json block, no "act", no "control", no "packages" field. those applied to messages sent to the counterparty and this is not one.

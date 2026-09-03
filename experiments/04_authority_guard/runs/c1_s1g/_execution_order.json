@@ -1,0 +1,86 @@
+{
+  "order_seed": 20260825,
+  "arm": "S1-G",
+  "runs": 15,
+  "execution_order": [
+    "G",
+    "G",
+    "G",
+    "G",
+    "G",
+    "G",
+    "G",
+    "G",
+    "G",
+    "G",
+    "G",
+    "G",
+    "G",
+    "G",
+    "G"
+  ],
+  "frozen_comparison": [
+    {
+      "file": "agents.py",
+      "c1_copy": "b9b8da5946ced705",
+      "frozen_baseline": "b9b8da5946ced705",
+      "expected": "b9b8da5946ced705",
+      "identical": true
+    },
+    {
+      "file": "protocol.py",
+      "c1_copy": "304a2dd59e0c6c3b",
+      "frozen_baseline": "304a2dd59e0c6c3b",
+      "expected": "304a2dd59e0c6c3b",
+      "identical": true
+    },
+    {
+      "file": "tracker.py",
+      "c1_copy": "285f26c090ec62d7",
+      "frozen_baseline": "285f26c090ec62d7",
+      "expected": "285f26c090ec62d7",
+      "identical": true
+    },
+    {
+      "file": "scoring.py",
+      "c1_copy": "5f34d0cedd193db3",
+      "frozen_baseline": "5f34d0cedd193db3",
+      "expected": "5f34d0cedd193db3",
+      "identical": true
+    },
+    {
+      "file": "config.json",
+      "c1_copy": "5752faec21fe6088",
+      "frozen_baseline": "5752faec21fe6088",
+      "expected": "5752faec21fe6088",
+      "identical": true
+    },
+    {
+      "file": "prompts/seller_system.txt",
+      "c1_copy": "d4005aaea3b9b780",
+      "frozen_baseline": "d4005aaea3b9b780",
+      "expected": "d4005aaea3b9b780",
+      "identical": true
+    },
+    {
+      "file": "prompts/buyer_system.txt",
+      "c1_copy": "2fccc7bc2b403f3a",
+      "frozen_baseline": "2fccc7bc2b403f3a",
+      "expected": "2fccc7bc2b403f3a",
+      "identical": true
+    },
+    {
+      "file": "prompts/state_block.txt",
+      "c1_copy": "9ca8af7e68b2474a",
+      "frozen_baseline": "9ca8af7e68b2474a",
+      "expected": "9ca8af7e68b2474a",
+      "identical": true
+    }
+  ],
+  "guard_prompt_check": {
+    "frozen_prefix_preserved": true,
+    "appended_bytes": 511,
+    "frozen_seller_system_sha16": "d4005aaea3b9b780",
+    "guarded_seller_system_sha16": "8df0dd56260de3b9"
+  }
+}

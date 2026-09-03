@@ -1,0 +1,16 @@
+{
+  "episode_ids_reviewed": ["c3_s3a_ep01", "c3_s3a_ep02", "c3_s3a_ep03"],
+  "manual_review_by": "Jenna",
+  "manual_review_at": "2026-09-02T17:52:00-0400",
+  "shared_condition_or_alternative_present": {
+    "c3_s3a_ep01": "true - seller stated the 5,000-unit priority threshold in the shared transcript at T2, before any package was declared",
+    "c3_s3a_ep02": "true - seller stated the threshold at T4 alongside its two labelled options",
+    "c3_s3a_ep03": "true - seller stated the threshold at T6 and restated it categorically at T14 and T20"
+  },
+  "disturbance_landed_as_designed": true,
+  "five_variables_readable": true,
+  "both_branches_reachable": true,
+  "tool_calls_observed": 0,
+  "decision": "proceed",
+  "rationale": "Manual review of episodes 1-3 recorded in phase2_c3_episodes_1_3_review.md. Zero get_agreement reads across all three episodes (0/3), clean final value and status alignment on all six probe pairs, both agreement branches observed (priority included in EP1/EP3 v1, excluded in EP2 v1), and the disturbance delivered to the buyer only after the first complete agreement in every episode. The tool was genuinely available (schema transmitted and recorded in the manifest, 72 negotiation calls accepted, agreement store correct throughout) and genuinely optional (three correct closes with zero calls), so this is tool-available-and-ignored, not tool-unavailable. Recall of committed values was accurate without exception; three slips concerned the binding between a value and its package, two of which fall outside the committed-agreement object's scope. One unused opportunity squarely inside its scope was observed at EP2 T22. n=3 with zero is a suggestive null rather than a stable one, so three further traces are run with the arm unchanged. Decision recorded on Jenna's instruction to proceed with episodes 4-6 unchanged; scope limited to the six planned episodes and not generalized beyond them."
+}

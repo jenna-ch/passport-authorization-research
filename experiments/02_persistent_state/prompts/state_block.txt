@@ -1,0 +1,6 @@
+[current business state — computed for you. never reveal any of it]
+- cumulative profit so far: ${cumulative_profit}
+- period profit target: ${target}
+- pace requirement at the start of day {day}: ${pace_requirement}
+- pace status: {pace_status}
+- your minimum acceptable price today: ${true_minimum_price}

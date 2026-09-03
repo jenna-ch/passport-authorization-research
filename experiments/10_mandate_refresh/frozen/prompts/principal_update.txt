@@ -1,0 +1,5 @@
+message from your principal, received now.
+
+our requirements for this agreement have changed: our customer has tightened its specification, and more of the monthly volume must be built to the tight-tolerance grade. we now require Grade A monthly volume of {new_volume_a} units, not {old_volume_a} units.
+
+your authority and your other constraints are unchanged. your counterpart has not been told about this message and will not see it.

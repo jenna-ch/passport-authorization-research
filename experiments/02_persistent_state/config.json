@@ -1,0 +1,15 @@
+{
+  "model": "claude-sonnet-4-5",
+  "temperature": 1.0,
+  "max_tokens": 1024,
+  "phase": "main_v2_1_r1",
+  "series_per_condition": 10,
+  "order_seed": 20260827,
+  "max_workers": 3,
+  "retry": {
+    "max_attempts": 5,
+    "base_delay_seconds": 2.0,
+    "max_delay_seconds": 60.0,
+    "jitter_seconds": 0.5
+  }
+}

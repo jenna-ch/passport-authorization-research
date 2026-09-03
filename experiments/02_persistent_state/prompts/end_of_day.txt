@@ -1,0 +1,2 @@
+=== end of day {day} ===
+{outcome_line}

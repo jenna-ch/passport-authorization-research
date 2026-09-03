@@ -1,0 +1,339 @@
+{
+  "cell": "C3",
+  "arm": "S3-A",
+  "simulated_primitive": "simulated Passport primitive interfaces based on current design materials",
+  "phase": "c3_s3a",
+  "episodes": [
+    4
+  ],
+  "config": {
+    "model": "claude-sonnet-4-5",
+    "temperature": 1.0,
+    "max_tokens": 1600,
+    "turn_cap": 40,
+    "phase": "pilot2_s3"
+  },
+  "world_spec": {
+    "variables": [
+      "volume_A",
+      "volume_B",
+      "price_A",
+      "price_B",
+      "priority_allocation"
+    ],
+    "volume_A_grid": [
+      3000,
+      4000,
+      5000,
+      6000,
+      7000
+    ],
+    "total_grid": [
+      10000,
+      12000,
+      14000
+    ],
+    "line_a_capacity": 8000,
+    "reserve_limit": 5000,
+    "spec_min_pre": 4000,
+    "spec_min_post": 7000,
+    "seller_base_A": 0.88,
+    "seller_base_B": 0.6,
+    "seller_vol_A_credit": {
+      "3000": 0.05,
+      "4000": 0.03,
+      "5000": 0.02,
+      "6000": 0.01,
+      "7000": 0.0
+    },
+    "seller_priority_A": 0.03,
+    "seller_priority_B": 0.02,
+    "buyer_base_A": 0.99,
+    "buyer_base_B": 0.7,
+    "buyer_priority_A": 0.04,
+    "buyer_priority_B": 0.03,
+    "buyer_total_adj": {
+      "10000": 0.0,
+      "12000": -0.01,
+      "14000": -0.02
+    },
+    "volume_B_credit_bands": {
+      "<=6000": 0.03,
+      "7000-8000": 0.02,
+      ">=9000": 0.0
+    }
+  },
+  "world_hash": "96fea605d7446f37",
+  "calibration_checks": {
+    "1_both_branches_overlap": true,
+    "2_pre_update_below_target": true,
+    "3_post_update_feasible": true,
+    "4_priority_impossible_at_target": true,
+    "5_no_global_domination": true
+  },
+  "prompt_hashes": {
+    "seller_system": "cc34e41b6dc68e13",
+    "buyer_system": "538cedb40e7f7f35",
+    "buyer_opening": "02f4fb0d859903c2",
+    "reprompt": "947ea95066453fa0",
+    "principal_update": "f396ed2cc7748937",
+    "probe_preamble": "de41008425d890f8",
+    "probe_1": "02cc6bdb2a647a9b",
+    "probe_2": "f7e2ccc9f8489466",
+    "probe_3": "a82e6ca9d396ca21"
+  },
+  "baseline_comparison": {
+    "here": {
+      "world_hash": "96fea605d7446f37",
+      "prompt_hashes": {
+        "seller_system": "cc34e41b6dc68e13",
+        "buyer_system": "538cedb40e7f7f35",
+        "buyer_opening": "02f4fb0d859903c2",
+        "reprompt": "947ea95066453fa0",
+        "principal_update": "f396ed2cc7748937",
+        "probe_preamble": "de41008425d890f8",
+        "probe_1": "02cc6bdb2a647a9b",
+        "probe_2": "f7e2ccc9f8489466",
+        "probe_3": "a82e6ca9d396ca21"
+      },
+      "config": {
+        "model": "claude-sonnet-4-5",
+        "temperature": 1.0,
+        "max_tokens": 1600,
+        "turn_cap": 40,
+        "phase": "pilot2_s3"
+      },
+      "spec_min_pre": 4000,
+      "spec_min_post": 7000,
+      "reserve_limit": 5000
+    },
+    "recorded_baseline": {
+      "world_hash": "96fea605d7446f37",
+      "prompt_hashes": {
+        "seller_system": "cc34e41b6dc68e13",
+        "buyer_system": "538cedb40e7f7f35",
+        "buyer_opening": "02f4fb0d859903c2",
+        "reprompt": "947ea95066453fa0",
+        "principal_update": "f396ed2cc7748937",
+        "probe_preamble": "de41008425d890f8",
+        "probe_1": "02cc6bdb2a647a9b",
+        "probe_2": "f7e2ccc9f8489466",
+        "probe_3": "a82e6ca9d396ca21"
+      },
+      "config": {
+        "model": "claude-sonnet-4-5",
+        "temperature": 1.0,
+        "max_tokens": 1600,
+        "turn_cap": 40,
+        "phase": "pilot2_s3"
+      }
+    },
+    "rows": [
+      {
+        "item": "world_hash",
+        "here": "96fea605d7446f37",
+        "baseline": "96fea605d7446f37",
+        "ok": true
+      },
+      {
+        "item": "world_hash == expected",
+        "here": "96fea605d7446f37",
+        "baseline": "96fea605d7446f37",
+        "ok": true
+      },
+      {
+        "item": "prompt:seller_system",
+        "here": "cc34e41b6dc68e13",
+        "baseline": "cc34e41b6dc68e13",
+        "ok": true
+      },
+      {
+        "item": "prompt:buyer_system",
+        "here": "538cedb40e7f7f35",
+        "baseline": "538cedb40e7f7f35",
+        "ok": true
+      },
+      {
+        "item": "prompt:buyer_opening",
+        "here": "02f4fb0d859903c2",
+        "baseline": "02f4fb0d859903c2",
+        "ok": true
+      },
+      {
+        "item": "prompt:reprompt",
+        "here": "947ea95066453fa0",
+        "baseline": "947ea95066453fa0",
+        "ok": true
+      },
+      {
+        "item": "prompt:principal_update",
+        "here": "f396ed2cc7748937",
+        "baseline": "f396ed2cc7748937",
+        "ok": true
+      },
+      {
+        "item": "prompt:probe_preamble",
+        "here": "de41008425d890f8",
+        "baseline": "de41008425d890f8",
+        "ok": true
+      },
+      {
+        "item": "prompt:probe_1",
+        "here": "02cc6bdb2a647a9b",
+        "baseline": "02cc6bdb2a647a9b",
+        "ok": true
+      },
+      {
+        "item": "prompt:probe_2",
+        "here": "f7e2ccc9f8489466",
+        "baseline": "f7e2ccc9f8489466",
+        "ok": true
+      },
+      {
+        "item": "prompt:probe_3",
+        "here": "a82e6ca9d396ca21",
+        "baseline": "a82e6ca9d396ca21",
+        "ok": true
+      },
+      {
+        "item": "config:model",
+        "here": "claude-sonnet-4-5",
+        "baseline": "claude-sonnet-4-5",
+        "ok": true
+      },
+      {
+        "item": "config:temperature",
+        "here": 1.0,
+        "baseline": 1.0,
+        "ok": true
+      },
+      {
+        "item": "config:max_tokens",
+        "here": 1600,
+        "baseline": 1600,
+        "ok": true
+      },
+      {
+        "item": "config:turn_cap",
+        "here": 40,
+        "baseline": 40,
+        "ok": true
+      },
+      {
+        "item": "update target volume_A",
+        "here": 7000,
+        "baseline": 7000,
+        "ok": true
+      },
+      {
+        "item": "priority threshold (reserve limit)",
+        "here": 5000,
+        "baseline": 5000,
+        "ok": true
+      },
+      {
+        "item": "pre-update spec minimum",
+        "here": 4000,
+        "baseline": 4000,
+        "ok": true
+      },
+      {
+        "item": "file:world.py",
+        "here": "1e7f49e123feab4d",
+        "baseline": "1e7f49e123feab4d",
+        "ok": true
+      },
+      {
+        "item": "file:mandates.py",
+        "here": "37dfb8cc52cabfa5",
+        "baseline": "37dfb8cc52cabfa5",
+        "ok": true
+      },
+      {
+        "item": "file:packages.py",
+        "here": "3f3ab0edc54948a3",
+        "baseline": "3f3ab0edc54948a3",
+        "ok": true
+      },
+      {
+        "item": "file:extract.py",
+        "here": "b3dbb58aca99937c",
+        "baseline": "b3dbb58aca99937c",
+        "ok": true
+      },
+      {
+        "item": "file:transcript.py",
+        "here": "7667c7245dc49d70",
+        "baseline": "7667c7245dc49d70",
+        "ok": true
+      },
+      {
+        "item": "file:calibrate.py",
+        "here": "87af3b7a9d3a4713",
+        "baseline": "87af3b7a9d3a4713",
+        "ok": true
+      },
+      {
+        "item": "file:agents.py",
+        "here": "a60bc9fc5023a0df",
+        "baseline": "a60bc9fc5023a0df",
+        "ok": true
+      },
+      {
+        "item": "file:episode.py",
+        "here": "f6ed064309a8391a",
+        "baseline": "f6ed064309a8391a",
+        "ok": true
+      },
+      {
+        "item": "file:config.json",
+        "here": "6a9411392b3692ab",
+        "baseline": "6a9411392b3692ab",
+        "ok": true
+      }
+    ],
+    "all_ok": true
+  },
+  "gate_notes": [
+    "recorded gate decision: proceed, by Jenna"
+  ],
+  "tool_spec": {
+    "name": "get_agreement",
+    "description": "Returns the committed agreement record for this negotiation. The committed record contains the agreed terms and the version history of committed changes.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "view": {
+          "type": "string",
+          "enum": [
+            "current",
+            "history",
+            "version"
+          ],
+          "description": "`current` returns the currently committed terms and version; `history` returns all committed versions in order; `version` returns one specific version (supply `version`)."
+        },
+        "version": {
+          "type": "integer",
+          "description": "The version number, when view is `version`."
+        }
+      },
+      "required": [
+        "view"
+      ]
+    }
+  },
+  "sdk_version": "0.125.0",
+  "started_at": "2026-09-02T17:56:46+0000",
+  "not_included": [
+    "agreement state injected into any prompt or turn",
+    "commit notification",
+    "reminder that the tool exists",
+    "instruction on when to call it",
+    "automatic diff between committed version and proposal",
+    "tool availability during the post-close probes",
+    "semantic resolution supplied to agents",
+    "scoring",
+    "frozen metrics",
+    "cross-model cell"
+  ]
+}

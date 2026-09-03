@@ -1,0 +1,7 @@
+{
+  "model": "claude-sonnet-4-5",
+  "temperature": 1.0,
+  "max_tokens": 1600,
+  "turn_cap": 40,
+  "phase": "pilot2_s3"
+}

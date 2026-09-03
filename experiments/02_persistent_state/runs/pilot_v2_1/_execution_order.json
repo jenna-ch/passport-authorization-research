@@ -1,0 +1,28 @@
+{
+  "order_seed": 20260827,
+  "conditions": [
+    "A",
+    "B"
+  ],
+  "series_per_condition": 2,
+  "days_per_series": 10,
+  "execution_order": [
+    "B",
+    "A",
+    "B",
+    "A"
+  ],
+  "world_hash": "36eaf88ed96377cb89875825fc49afcfe9084b0cd14ff92259f2eb1a73791e5c",
+  "model": "claude-sonnet-4-5",
+  "temperature": 1.0,
+  "max_tokens": 1024,
+  "sdk_version": "0.125.0",
+  "prompt_hashes": {
+    "seller_system": "34f90960e2d3961738fc93ebcfcd7582b1a8cc49241a2bb7162974959d5dcca9",
+    "buyer_system": "03ef313121f1eacf7bc01569d18e807fef9c1f2893ed8c08dae2ff93df3c141c",
+    "morning_brief": "62c53bedc46dcb446b74bd01ecc228d0d750c4487cd45aad1cf19db13109cea1",
+    "state_block": "665445e1a9437df6ec00be6d72e82d2462a0a9f5c99b093b68c21aca574b497b",
+    "end_of_day": "8377837bd978aab9d7bf492444a3bbadaf59119c891fa7c616ac20e47fd7c94f"
+  },
+  "started_at": "2026-08-27T14:59:22-0400"
+}

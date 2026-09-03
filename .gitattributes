@@ -1,0 +1,24 @@
+# =====================================================================
+# Byte preservation for a frozen research record. Do not narrow or remove.
+#
+# This repository is the closed record of an experimental programme. File
+# hashes are recorded as provenance inside the analysis manifests
+# (prompt_hashes, frozen_hashes, frozen_baseline_file_hashes,
+# distinct_file_hashes). A checkout must therefore be byte-identical to what
+# was committed, on every machine, or those recorded hashes stop verifying.
+#
+# The experiment artifacts intentionally contain MIXED line endings, and the
+# mix runs *within* a single file class rather than between classes — e.g. of
+# 476 raw run records 466 contain CRLF and 4 are LF-only; of 27 execution
+# plans and manifests 12 contain CRLF and 15 are LF-only. That is a property
+# of how the records were written during execution, and it is part of the
+# frozen bytes. No convention-setting rule can preserve both sides of such a
+# mix: any EOL normalization would rewrite one side of it. So conversion is
+# disabled outright rather than standardized.
+#
+# `-text` disables end-of-line conversion only. It does NOT mark files binary:
+# git diff, blame and merge remain fully text-aware. Attributes take
+# precedence over core.autocrlf, so this holds regardless of the cloning
+# machine's git configuration.
+# =====================================================================
+* -text

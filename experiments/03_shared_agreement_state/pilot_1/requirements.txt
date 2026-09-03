@@ -1,0 +1,3 @@
+# study 3 pilot. same pins as the study 2 freeze.
+anthropic==0.125.0
+python-dotenv==1.2.2

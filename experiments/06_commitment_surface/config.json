@@ -1,0 +1,9 @@
+{
+  "model": "claude-sonnet-4-5",
+  "temperature": 1.0,
+  "max_tokens": 1024,
+  "max_rounds": 6,
+  "order_seed": 20260825,
+  "phase": "pilot",
+  "runs_per_condition": 10
+}

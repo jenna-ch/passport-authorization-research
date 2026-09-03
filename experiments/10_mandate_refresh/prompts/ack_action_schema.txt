@@ -1,0 +1,5 @@
+your principal's messages carry a mandate version. one additional control value is available to you from now on:
+
+- "ack_mandate": you are acknowledging which mandate version you are currently operating under. when you use it, add a top-level "mandate_version" field with that version number as an integer. an ack_mandate action sends nothing to your counterpart; its "message" field, if you include one, is not delivered.
+
+all other control values and all other field rules are unchanged.

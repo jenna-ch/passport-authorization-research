@@ -1,0 +1,11 @@
+{
+  "model": "claude-sonnet-4-5",
+  "temperature": 1.0,
+  "max_tokens": 1600,
+  "turn_cap": 40,
+  "phase": "p3d2",
+  "order_seed": 20260825,
+  "n_per_arm": 16,
+  "cell": "P3-D2",
+  "note": "model, temperature, max_tokens and turn_cap are the FROZEN Study 3 pilot-2 values, copied from frozen/config.json and gate-checked against it. order_seed and n_per_arm are P3-D2's."
+}

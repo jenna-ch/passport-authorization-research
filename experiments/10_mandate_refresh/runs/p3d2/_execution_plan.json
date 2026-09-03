@@ -1,0 +1,570 @@
+{
+  "schema": "p3d2.execution_plan.v1",
+  "cell": "P3-D2",
+  "design_of_record": "phase3_p3d2_design_and_implementation.md",
+  "order_seed": 20260825,
+  "n_per_arm": 16,
+  "n_total": 48,
+  "arm_counts": {
+    "D2-prompt": 16,
+    "D2-state": 16,
+    "D2-ack": 16
+  },
+  "arms": {
+    "D2-prompt": {
+      "arm": "D2-prompt",
+      "refresh_mechanism": "information_in_context",
+      "state_block": false,
+      "ack_gate": false,
+      "update_sha16": "941c2ade9bd5ee21",
+      "gates_authorization": false,
+      "note": "the ack gate gates REFRESH, never authorization; it inspects no price and cannot make a stale-authority action impossible"
+    },
+    "D2-state": {
+      "arm": "D2-state",
+      "refresh_mechanism": "deterministic_state_exposure",
+      "state_block": true,
+      "ack_gate": false,
+      "update_sha16": "941c2ade9bd5ee21",
+      "gates_authorization": false,
+      "note": "the ack gate gates REFRESH, never authorization; it inspects no price and cannot make a stale-authority action impossible"
+    },
+    "D2-ack": {
+      "arm": "D2-ack",
+      "refresh_mechanism": "control_plane_gate",
+      "state_block": true,
+      "ack_gate": true,
+      "update_sha16": "941c2ade9bd5ee21",
+      "gates_authorization": false,
+      "note": "the ack gate gates REFRESH, never authorization; it inspects no price and cannot make a stale-authority action impossible"
+    }
+  },
+  "interleaving": "blocks of three; each block is a seeded permutation of the three arms. exactly n_per_arm runs per arm, and balance within every consecutive window of three positions.",
+  "max_consecutive_same_arm": 2,
+  "plan_digest": "878d5ecddd2373c3",
+  "frozen_comparison": [
+    {
+      "group": "frozen_study3",
+      "file": "world.py",
+      "p3d2_copy": "1e7f49e123feab4d",
+      "baseline": "1e7f49e123feab4d",
+      "baseline_path": "phase2_c3_read/world.py",
+      "identical": true
+    },
+    {
+      "group": "frozen_study3",
+      "file": "packages.py",
+      "p3d2_copy": "3f3ab0edc54948a3",
+      "baseline": "3f3ab0edc54948a3",
+      "baseline_path": "phase2_c3_read/packages.py",
+      "identical": true
+    },
+    {
+      "group": "frozen_study3",
+      "file": "mandates.py",
+      "p3d2_copy": "37dfb8cc52cabfa5",
+      "baseline": "37dfb8cc52cabfa5",
+      "baseline_path": "phase2_c3_read/mandates.py",
+      "identical": true
+    },
+    {
+      "group": "frozen_study3",
+      "file": "agents.py",
+      "p3d2_copy": "a60bc9fc5023a0df",
+      "baseline": "a60bc9fc5023a0df",
+      "baseline_path": "phase2_c3_read/agents.py",
+      "identical": true
+    },
+    {
+      "group": "frozen_study3",
+      "file": "episode.py",
+      "p3d2_copy": "f6ed064309a8391a",
+      "baseline": "f6ed064309a8391a",
+      "baseline_path": "phase2_c3_read/episode.py",
+      "identical": true
+    },
+    {
+      "group": "frozen_study3",
+      "file": "extract.py",
+      "p3d2_copy": "b3dbb58aca99937c",
+      "baseline": "b3dbb58aca99937c",
+      "baseline_path": "phase2_c3_read/extract.py",
+      "identical": true
+    },
+    {
+      "group": "frozen_study3",
+      "file": "config.json",
+      "p3d2_copy": "6a9411392b3692ab",
+      "baseline": "6a9411392b3692ab",
+      "baseline_path": "phase2_c3_read/config.json",
+      "identical": true
+    },
+    {
+      "group": "frozen_study3_prompts",
+      "file": "prompts/buyer_opening.txt",
+      "p3d2_copy": "02f4fb0d859903c2",
+      "baseline": "02f4fb0d859903c2",
+      "baseline_path": "phase2_c3_read/prompts/buyer_opening.txt",
+      "identical": true
+    },
+    {
+      "group": "frozen_study3_prompts",
+      "file": "prompts/buyer_system.txt",
+      "p3d2_copy": "538cedb40e7f7f35",
+      "baseline": "538cedb40e7f7f35",
+      "baseline_path": "phase2_c3_read/prompts/buyer_system.txt",
+      "identical": true
+    },
+    {
+      "group": "frozen_study3_prompts",
+      "file": "prompts/principal_update.txt",
+      "p3d2_copy": "f396ed2cc7748937",
+      "baseline": "f396ed2cc7748937",
+      "baseline_path": "phase2_c3_read/prompts/principal_update.txt",
+      "identical": true
+    },
+    {
+      "group": "frozen_study3_prompts",
+      "file": "prompts/probe_1.txt",
+      "p3d2_copy": "02cc6bdb2a647a9b",
+      "baseline": "02cc6bdb2a647a9b",
+      "baseline_path": "phase2_c3_read/prompts/probe_1.txt",
+      "identical": true
+    },
+    {
+      "group": "frozen_study3_prompts",
+      "file": "prompts/probe_2.txt",
+      "p3d2_copy": "f7e2ccc9f8489466",
+      "baseline": "f7e2ccc9f8489466",
+      "baseline_path": "phase2_c3_read/prompts/probe_2.txt",
+      "identical": true
+    },
+    {
+      "group": "frozen_study3_prompts",
+      "file": "prompts/probe_3.txt",
+      "p3d2_copy": "a82e6ca9d396ca21",
+      "baseline": "a82e6ca9d396ca21",
+      "baseline_path": "phase2_c3_read/prompts/probe_3.txt",
+      "identical": true
+    },
+    {
+      "group": "frozen_study3_prompts",
+      "file": "prompts/probe_preamble.txt",
+      "p3d2_copy": "de41008425d890f8",
+      "baseline": "de41008425d890f8",
+      "baseline_path": "phase2_c3_read/prompts/probe_preamble.txt",
+      "identical": true
+    },
+    {
+      "group": "frozen_study3_prompts",
+      "file": "prompts/reprompt.txt",
+      "p3d2_copy": "947ea95066453fa0",
+      "baseline": "947ea95066453fa0",
+      "baseline_path": "phase2_c3_read/prompts/reprompt.txt",
+      "identical": true
+    },
+    {
+      "group": "frozen_study3_prompts",
+      "file": "prompts/seller_system.txt",
+      "p3d2_copy": "cc34e41b6dc68e13",
+      "baseline": "cc34e41b6dc68e13",
+      "baseline_path": "phase2_c3_read/prompts/seller_system.txt",
+      "identical": true
+    },
+    {
+      "group": "p3d2_constant_prompts",
+      "file": "prompts/principal_update_authority.txt",
+      "p3d2_copy": "941c2ade9bd5ee21",
+      "baseline": "941c2ade9bd5ee21",
+      "baseline_path": "recorded in this file",
+      "identical": true
+    },
+    {
+      "group": "p3d2_constant_prompts",
+      "file": "prompts/provider_amendment.txt",
+      "p3d2_copy": "7f02e53a9eb05267",
+      "baseline": "7f02e53a9eb05267",
+      "baseline_path": "recorded in this file",
+      "identical": true
+    },
+    {
+      "group": "p3d2_constant_prompts",
+      "file": "prompts/ack_action_schema.txt",
+      "p3d2_copy": "65bdc42237b51fd5",
+      "baseline": null,
+      "baseline_path": "recorded in this file",
+      "identical": true
+    }
+  ],
+  "prompt_hashes": {
+    "seller_system_frozen": "cc34e41b6dc68e13",
+    "buyer_system_frozen": "538cedb40e7f7f35",
+    "buyer_opening_frozen": "02f4fb0d859903c2",
+    "reprompt_frozen": "947ea95066453fa0",
+    "principal_update_authority": "941c2ade9bd5ee21",
+    "provider_amendment": "7f02e53a9eb05267",
+    "ack_action_schema": "65bdc42237b51fd5",
+    "refresh_request_sha16": "a6c07e0a9b0d75e0",
+    "ack_recorded_sha16": "ab8402ee0a0837b6",
+    "ack_rejected_sha16": "2139fffff6b16754",
+    "rendered_seller_system": "12c040d353264e0c",
+    "rendered_buyer_system": "804889ca174b2b44"
+  },
+  "run_id_rule": "run_id = p3d2_{position:03d}_{arm}. positions are global and come from this plan, never from a per-invocation counter.",
+  "resumption_rule": "a confirmed invocation skips any position whose output file already exists and never overwrites an existing run.",
+  "positions": [
+    {
+      "position": 1,
+      "block": 1,
+      "slot_in_block": 1,
+      "arm": "D2-ack",
+      "run_id": "p3d2_001_D2-ack"
+    },
+    {
+      "position": 2,
+      "block": 1,
+      "slot_in_block": 2,
+      "arm": "D2-state",
+      "run_id": "p3d2_002_D2-state"
+    },
+    {
+      "position": 3,
+      "block": 1,
+      "slot_in_block": 3,
+      "arm": "D2-prompt",
+      "run_id": "p3d2_003_D2-prompt"
+    },
+    {
+      "position": 4,
+      "block": 2,
+      "slot_in_block": 1,
+      "arm": "D2-state",
+      "run_id": "p3d2_004_D2-state"
+    },
+    {
+      "position": 5,
+      "block": 2,
+      "slot_in_block": 2,
+      "arm": "D2-prompt",
+      "run_id": "p3d2_005_D2-prompt"
+    },
+    {
+      "position": 6,
+      "block": 2,
+      "slot_in_block": 3,
+      "arm": "D2-ack",
+      "run_id": "p3d2_006_D2-ack"
+    },
+    {
+      "position": 7,
+      "block": 3,
+      "slot_in_block": 1,
+      "arm": "D2-prompt",
+      "run_id": "p3d2_007_D2-prompt"
+    },
+    {
+      "position": 8,
+      "block": 3,
+      "slot_in_block": 2,
+      "arm": "D2-ack",
+      "run_id": "p3d2_008_D2-ack"
+    },
+    {
+      "position": 9,
+      "block": 3,
+      "slot_in_block": 3,
+      "arm": "D2-state",
+      "run_id": "p3d2_009_D2-state"
+    },
+    {
+      "position": 10,
+      "block": 4,
+      "slot_in_block": 1,
+      "arm": "D2-state",
+      "run_id": "p3d2_010_D2-state"
+    },
+    {
+      "position": 11,
+      "block": 4,
+      "slot_in_block": 2,
+      "arm": "D2-ack",
+      "run_id": "p3d2_011_D2-ack"
+    },
+    {
+      "position": 12,
+      "block": 4,
+      "slot_in_block": 3,
+      "arm": "D2-prompt",
+      "run_id": "p3d2_012_D2-prompt"
+    },
+    {
+      "position": 13,
+      "block": 5,
+      "slot_in_block": 1,
+      "arm": "D2-ack",
+      "run_id": "p3d2_013_D2-ack"
+    },
+    {
+      "position": 14,
+      "block": 5,
+      "slot_in_block": 2,
+      "arm": "D2-state",
+      "run_id": "p3d2_014_D2-state"
+    },
+    {
+      "position": 15,
+      "block": 5,
+      "slot_in_block": 3,
+      "arm": "D2-prompt",
+      "run_id": "p3d2_015_D2-prompt"
+    },
+    {
+      "position": 16,
+      "block": 6,
+      "slot_in_block": 1,
+      "arm": "D2-prompt",
+      "run_id": "p3d2_016_D2-prompt"
+    },
+    {
+      "position": 17,
+      "block": 6,
+      "slot_in_block": 2,
+      "arm": "D2-state",
+      "run_id": "p3d2_017_D2-state"
+    },
+    {
+      "position": 18,
+      "block": 6,
+      "slot_in_block": 3,
+      "arm": "D2-ack",
+      "run_id": "p3d2_018_D2-ack"
+    },
+    {
+      "position": 19,
+      "block": 7,
+      "slot_in_block": 1,
+      "arm": "D2-state",
+      "run_id": "p3d2_019_D2-state"
+    },
+    {
+      "position": 20,
+      "block": 7,
+      "slot_in_block": 2,
+      "arm": "D2-ack",
+      "run_id": "p3d2_020_D2-ack"
+    },
+    {
+      "position": 21,
+      "block": 7,
+      "slot_in_block": 3,
+      "arm": "D2-prompt",
+      "run_id": "p3d2_021_D2-prompt"
+    },
+    {
+      "position": 22,
+      "block": 8,
+      "slot_in_block": 1,
+      "arm": "D2-ack",
+      "run_id": "p3d2_022_D2-ack"
+    },
+    {
+      "position": 23,
+      "block": 8,
+      "slot_in_block": 2,
+      "arm": "D2-prompt",
+      "run_id": "p3d2_023_D2-prompt"
+    },
+    {
+      "position": 24,
+      "block": 8,
+      "slot_in_block": 3,
+      "arm": "D2-state",
+      "run_id": "p3d2_024_D2-state"
+    },
+    {
+      "position": 25,
+      "block": 9,
+      "slot_in_block": 1,
+      "arm": "D2-ack",
+      "run_id": "p3d2_025_D2-ack"
+    },
+    {
+      "position": 26,
+      "block": 9,
+      "slot_in_block": 2,
+      "arm": "D2-state",
+      "run_id": "p3d2_026_D2-state"
+    },
+    {
+      "position": 27,
+      "block": 9,
+      "slot_in_block": 3,
+      "arm": "D2-prompt",
+      "run_id": "p3d2_027_D2-prompt"
+    },
+    {
+      "position": 28,
+      "block": 10,
+      "slot_in_block": 1,
+      "arm": "D2-ack",
+      "run_id": "p3d2_028_D2-ack"
+    },
+    {
+      "position": 29,
+      "block": 10,
+      "slot_in_block": 2,
+      "arm": "D2-prompt",
+      "run_id": "p3d2_029_D2-prompt"
+    },
+    {
+      "position": 30,
+      "block": 10,
+      "slot_in_block": 3,
+      "arm": "D2-state",
+      "run_id": "p3d2_030_D2-state"
+    },
+    {
+      "position": 31,
+      "block": 11,
+      "slot_in_block": 1,
+      "arm": "D2-state",
+      "run_id": "p3d2_031_D2-state"
+    },
+    {
+      "position": 32,
+      "block": 11,
+      "slot_in_block": 2,
+      "arm": "D2-prompt",
+      "run_id": "p3d2_032_D2-prompt"
+    },
+    {
+      "position": 33,
+      "block": 11,
+      "slot_in_block": 3,
+      "arm": "D2-ack",
+      "run_id": "p3d2_033_D2-ack"
+    },
+    {
+      "position": 34,
+      "block": 12,
+      "slot_in_block": 1,
+      "arm": "D2-ack",
+      "run_id": "p3d2_034_D2-ack"
+    },
+    {
+      "position": 35,
+      "block": 12,
+      "slot_in_block": 2,
+      "arm": "D2-prompt",
+      "run_id": "p3d2_035_D2-prompt"
+    },
+    {
+      "position": 36,
+      "block": 12,
+      "slot_in_block": 3,
+      "arm": "D2-state",
+      "run_id": "p3d2_036_D2-state"
+    },
+    {
+      "position": 37,
+      "block": 13,
+      "slot_in_block": 1,
+      "arm": "D2-prompt",
+      "run_id": "p3d2_037_D2-prompt"
+    },
+    {
+      "position": 38,
+      "block": 13,
+      "slot_in_block": 2,
+      "arm": "D2-state",
+      "run_id": "p3d2_038_D2-state"
+    },
+    {
+      "position": 39,
+      "block": 13,
+      "slot_in_block": 3,
+      "arm": "D2-ack",
+      "run_id": "p3d2_039_D2-ack"
+    },
+    {
+      "position": 40,
+      "block": 14,
+      "slot_in_block": 1,
+      "arm": "D2-prompt",
+      "run_id": "p3d2_040_D2-prompt"
+    },
+    {
+      "position": 41,
+      "block": 14,
+      "slot_in_block": 2,
+      "arm": "D2-state",
+      "run_id": "p3d2_041_D2-state"
+    },
+    {
+      "position": 42,
+      "block": 14,
+      "slot_in_block": 3,
+      "arm": "D2-ack",
+      "run_id": "p3d2_042_D2-ack"
+    },
+    {
+      "position": 43,
+      "block": 15,
+      "slot_in_block": 1,
+      "arm": "D2-ack",
+      "run_id": "p3d2_043_D2-ack"
+    },
+    {
+      "position": 44,
+      "block": 15,
+      "slot_in_block": 2,
+      "arm": "D2-state",
+      "run_id": "p3d2_044_D2-state"
+    },
+    {
+      "position": 45,
+      "block": 15,
+      "slot_in_block": 3,
+      "arm": "D2-prompt",
+      "run_id": "p3d2_045_D2-prompt"
+    },
+    {
+      "position": 46,
+      "block": 16,
+      "slot_in_block": 1,
+      "arm": "D2-prompt",
+      "run_id": "p3d2_046_D2-prompt"
+    },
+    {
+      "position": 47,
+      "block": 16,
+      "slot_in_block": 2,
+      "arm": "D2-ack",
+      "run_id": "p3d2_047_D2-ack"
+    },
+    {
+      "position": 48,
+      "block": 16,
+      "slot_in_block": 3,
+      "arm": "D2-state",
+      "run_id": "p3d2_048_D2-state"
+    }
+  ],
+  "config": {
+    "model": "claude-sonnet-4-5",
+    "temperature": 1.0,
+    "max_tokens": 1600,
+    "turn_cap": 40,
+    "phase": "p3d2",
+    "order_seed": 20260825,
+    "n_per_arm": 16,
+    "cell": "P3-D2",
+    "note": "model, temperature, max_tokens and turn_cap are the FROZEN Study 3 pilot-2 values, copied from frozen/config.json and gate-checked against it. order_seed and n_per_arm are P3-D2's."
+  },
+  "config_matches_frozen": {
+    "model": true,
+    "temperature": true,
+    "max_tokens": true,
+    "turn_cap": true
+  }
+}

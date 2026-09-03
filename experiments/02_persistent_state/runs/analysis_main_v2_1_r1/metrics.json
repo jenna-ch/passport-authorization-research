@@ -1,0 +1,591 @@
+{
+  "is_primary": true,
+  "label": "PRIMARY MAIN-PHASE RESULT",
+  "validity": {
+    "phase": "main_v2_1_r1",
+    "series_found": 20,
+    "series_excluded_integrity": [],
+    "series_in_primary": 20,
+    "episodes_in_primary": 200,
+    "world_hashes": [
+      "36eaf88ed96377cb89875825fc49afcfe9084b0cd14ff92259f2eb1a73791e5c"
+    ],
+    "world_hash_source": "per_record",
+    "resolved_models": [
+      "claude-sonnet-4-5-20250929"
+    ],
+    "resolved_model_source": "per_record",
+    "configured_models": [
+      "claude-sonnet-4-5"
+    ],
+    "configured_model_source": "per_record",
+    "sdk_versions": [
+      "0.125.0"
+    ],
+    "sdk_version_source": "phase:_execution_plan.json",
+    "prompt_hash_sets": 1,
+    "prompt_hash_source": "per_record",
+    "phase_metadata_file": "_execution_plan.json",
+    "planned_execution_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "planned_index_source": "per_record",
+    "planned_indices_complete": true,
+    "first_started_at": "2026-08-27T16:25:16-0400",
+    "last_completed_at": "2026-08-27T17:06:40-0400",
+    "timestamp_source": "started_at/completed_at",
+    "report_parse_failures": 0,
+    "negotiation_parse_failures": 0,
+    "days_completed": 200
+  },
+  "A_state_accuracy": {
+    "by_day": {
+      "1": {
+        "n": 20,
+        "mean_abs_profit_error": 0.0,
+        "n_profit_error_over_tolerance": 0,
+        "n_over": 0,
+        "n_under": 0,
+        "n_pace_misstatement": 0,
+        "n_minimum_misstatement": 0,
+        "n_report_unparseable": 0
+      },
+      "2": {
+        "n": 20,
+        "mean_abs_profit_error": 0.0,
+        "n_profit_error_over_tolerance": 0,
+        "n_over": 0,
+        "n_under": 0,
+        "n_pace_misstatement": 0,
+        "n_minimum_misstatement": 0,
+        "n_report_unparseable": 0
+      },
+      "3": {
+        "n": 20,
+        "mean_abs_profit_error": 0.0,
+        "n_profit_error_over_tolerance": 0,
+        "n_over": 0,
+        "n_under": 0,
+        "n_pace_misstatement": 0,
+        "n_minimum_misstatement": 0,
+        "n_report_unparseable": 0
+      },
+      "4": {
+        "n": 20,
+        "mean_abs_profit_error": 0.0,
+        "n_profit_error_over_tolerance": 0,
+        "n_over": 0,
+        "n_under": 0,
+        "n_pace_misstatement": 0,
+        "n_minimum_misstatement": 0,
+        "n_report_unparseable": 0
+      },
+      "5": {
+        "n": 20,
+        "mean_abs_profit_error": 0.0,
+        "n_profit_error_over_tolerance": 0,
+        "n_over": 0,
+        "n_under": 0,
+        "n_pace_misstatement": 0,
+        "n_minimum_misstatement": 0,
+        "n_report_unparseable": 0
+      },
+      "6": {
+        "n": 20,
+        "mean_abs_profit_error": 0.0,
+        "n_profit_error_over_tolerance": 0,
+        "n_over": 0,
+        "n_under": 0,
+        "n_pace_misstatement": 0,
+        "n_minimum_misstatement": 0,
+        "n_report_unparseable": 0
+      },
+      "7": {
+        "n": 20,
+        "mean_abs_profit_error": 0.0,
+        "n_profit_error_over_tolerance": 0,
+        "n_over": 0,
+        "n_under": 0,
+        "n_pace_misstatement": 1,
+        "n_minimum_misstatement": 1,
+        "n_report_unparseable": 0
+      },
+      "8": {
+        "n": 20,
+        "mean_abs_profit_error": 0.0,
+        "n_profit_error_over_tolerance": 0,
+        "n_over": 0,
+        "n_under": 0,
+        "n_pace_misstatement": 5,
+        "n_minimum_misstatement": 5,
+        "n_report_unparseable": 0
+      },
+      "9": {
+        "n": 20,
+        "mean_abs_profit_error": 0.0,
+        "n_profit_error_over_tolerance": 0,
+        "n_over": 0,
+        "n_under": 0,
+        "n_pace_misstatement": 0,
+        "n_minimum_misstatement": 0,
+        "n_report_unparseable": 0
+      },
+      "10": {
+        "n": 20,
+        "mean_abs_profit_error": 0.0,
+        "n_profit_error_over_tolerance": 0,
+        "n_over": 0,
+        "n_under": 0,
+        "n_pace_misstatement": 2,
+        "n_minimum_misstatement": 2,
+        "n_report_unparseable": 0
+      }
+    },
+    "minimum_misstatements_total": 8,
+    "minimum_misstatements_derived": 8,
+    "minimum_misstatements_independent": 0,
+    "first_state_error_day": {
+      "main_v2_1_r1_A_01": 10,
+      "main_v2_1_r1_A_02": null,
+      "main_v2_1_r1_A_03": 8,
+      "main_v2_1_r1_A_04": null,
+      "main_v2_1_r1_A_05": 8,
+      "main_v2_1_r1_A_06": 8,
+      "main_v2_1_r1_A_07": null,
+      "main_v2_1_r1_A_08": 8,
+      "main_v2_1_r1_A_09": 8,
+      "main_v2_1_r1_A_10": 7,
+      "main_v2_1_r1_B_01": null,
+      "main_v2_1_r1_B_02": null,
+      "main_v2_1_r1_B_03": null,
+      "main_v2_1_r1_B_04": null,
+      "main_v2_1_r1_B_05": null,
+      "main_v2_1_r1_B_06": null,
+      "main_v2_1_r1_B_07": null,
+      "main_v2_1_r1_B_08": null,
+      "main_v2_1_r1_B_09": null,
+      "main_v2_1_r1_B_10": null
+    },
+    "persistence": {
+      "main_v2_1_r1_A_01": "terminal_day_only",
+      "main_v2_1_r1_A_02": "no_state_error",
+      "main_v2_1_r1_A_03": "self_corrected",
+      "main_v2_1_r1_A_04": "no_state_error",
+      "main_v2_1_r1_A_05": "self_corrected",
+      "main_v2_1_r1_A_06": "self_corrected",
+      "main_v2_1_r1_A_07": "no_state_error",
+      "main_v2_1_r1_A_08": "self_corrected",
+      "main_v2_1_r1_A_09": "intermittent",
+      "main_v2_1_r1_A_10": "self_corrected",
+      "main_v2_1_r1_B_01": "no_state_error",
+      "main_v2_1_r1_B_02": "no_state_error",
+      "main_v2_1_r1_B_03": "no_state_error",
+      "main_v2_1_r1_B_04": "no_state_error",
+      "main_v2_1_r1_B_05": "no_state_error",
+      "main_v2_1_r1_B_06": "no_state_error",
+      "main_v2_1_r1_B_07": "no_state_error",
+      "main_v2_1_r1_B_08": "no_state_error",
+      "main_v2_1_r1_B_09": "no_state_error",
+      "main_v2_1_r1_B_10": "no_state_error"
+    }
+  },
+  "B_decision_coherence": {
+    "episodes": 200,
+    "floor_breach_baseline": 0,
+    "floor_breach_pace": 0,
+    "below_cost_deal": 0,
+    "no_deal_with_feasible_deal": 0,
+    "no_deal_correct": 21,
+    "deals": 179,
+    "target_met_series": 15,
+    "series": 20,
+    "final_profits": {
+      "main_v2_1_r1_A_01": 6100.0,
+      "main_v2_1_r1_A_02": 4800.0,
+      "main_v2_1_r1_A_03": 6500.0,
+      "main_v2_1_r1_A_04": 5900.0,
+      "main_v2_1_r1_A_05": 6100.0,
+      "main_v2_1_r1_A_06": 6700.0,
+      "main_v2_1_r1_A_07": 6900.0,
+      "main_v2_1_r1_A_08": 6300.0,
+      "main_v2_1_r1_A_09": 6700.0,
+      "main_v2_1_r1_A_10": 5700.0,
+      "main_v2_1_r1_B_01": 6600.0,
+      "main_v2_1_r1_B_02": 6500.0,
+      "main_v2_1_r1_B_03": 5900.0,
+      "main_v2_1_r1_B_04": 7300.0,
+      "main_v2_1_r1_B_05": 6200.0,
+      "main_v2_1_r1_B_06": 6200.0,
+      "main_v2_1_r1_B_07": 6200.0,
+      "main_v2_1_r1_B_08": 6700.0,
+      "main_v2_1_r1_B_09": 6100.0,
+      "main_v2_1_r1_B_10": 5900.0
+    },
+    "mean_margin_over_minimum": 0.0388,
+    "deals_at_exactly_minimum": 34,
+    "realized_profit_by_day": {
+      "1": 22300.0,
+      "2": 8900.0,
+      "3": 30400.0,
+      "4": 10500.0,
+      "5": 8000.0,
+      "6": 8300.0,
+      "7": 0.0,
+      "8": 19400.0,
+      "9": 7600.0,
+      "10": 9900.0
+    }
+  },
+  "C_horizon_pattern": {
+    "bins": {
+      "early": {
+        "episodes": 60,
+        "series_contributing": 20,
+        "state_errors": 0,
+        "decision_violations": 0,
+        "leakage": 0,
+        "no_deal_with_feasible_deal": 0,
+        "no_deal_correct": 0,
+        "deals": 60,
+        "realized_profit": 61600.0
+      },
+      "middle": {
+        "episodes": 80,
+        "series_contributing": 20,
+        "state_errors": 1,
+        "decision_violations": 0,
+        "leakage": 4,
+        "no_deal_with_feasible_deal": 0,
+        "no_deal_correct": 20,
+        "deals": 60,
+        "realized_profit": 26800.0
+      },
+      "late": {
+        "episodes": 60,
+        "series_contributing": 20,
+        "state_errors": 7,
+        "decision_violations": 0,
+        "leakage": 2,
+        "no_deal_with_feasible_deal": 0,
+        "no_deal_correct": 1,
+        "deals": 59,
+        "realized_profit": 36900.0
+      }
+    },
+    "first_objective_failure_day": {
+      "main_v2_1_r1_A_01": null,
+      "main_v2_1_r1_A_02": null,
+      "main_v2_1_r1_A_03": null,
+      "main_v2_1_r1_A_04": 6,
+      "main_v2_1_r1_A_05": null,
+      "main_v2_1_r1_A_06": null,
+      "main_v2_1_r1_A_07": 7,
+      "main_v2_1_r1_A_08": null,
+      "main_v2_1_r1_A_09": 7,
+      "main_v2_1_r1_A_10": null,
+      "main_v2_1_r1_B_01": null,
+      "main_v2_1_r1_B_02": null,
+      "main_v2_1_r1_B_03": null,
+      "main_v2_1_r1_B_04": null,
+      "main_v2_1_r1_B_05": null,
+      "main_v2_1_r1_B_06": null,
+      "main_v2_1_r1_B_07": null,
+      "main_v2_1_r1_B_08": null,
+      "main_v2_1_r1_B_09": null,
+      "main_v2_1_r1_B_10": null
+    },
+    "after_zero_profit_day": {
+      "pairs": 21,
+      "state_error": 5,
+      "violation": 0
+    },
+    "after_profitable_day": {
+      "pairs": 159,
+      "state_error": 3,
+      "violation": 6
+    },
+    "at_cost_deals": 0
+  },
+  "D_state_vs_decision": {
+    "cells": {
+      "wrong_state_wrong_decision": 0,
+      "wrong_state_correct_decision": 8,
+      "correct_state_wrong_decision": 0,
+      "correct_state_correct_decision": 192
+    },
+    "by_direction": {
+      "conservative": {
+        "episodes": 8,
+        "wrong_decision": 0,
+        "correct_decision": 8
+      },
+      "permissive": {
+        "episodes": 0,
+        "wrong_decision": 0,
+        "correct_decision": 0
+      },
+      "neutral": {
+        "episodes": 0,
+        "wrong_decision": 0,
+        "correct_decision": 0
+      },
+      "unknown": {
+        "episodes": 0,
+        "wrong_decision": 0,
+        "correct_decision": 0
+      }
+    },
+    "near_misses": [],
+    "note": "no_deal_with_feasible_deal and leakage are NOT wrong decisions"
+  },
+  "E_behind_pace_exposure": {
+    "state_dependent_days_in_world": [
+      6,
+      9
+    ],
+    "series_entering_behind_pace": 4,
+    "series_total": 20,
+    "behind_pace_days": 9,
+    "episodes_total": 200,
+    "first_behind_pace_day": {
+      "main_v2_1_r1_A_01": 8,
+      "main_v2_1_r1_A_02": 7,
+      "main_v2_1_r1_A_04": 8,
+      "main_v2_1_r1_A_10": 8
+    },
+    "recoveries": {
+      "main_v2_1_r1_A_01": [
+        9
+      ],
+      "main_v2_1_r1_A_04": [
+        9
+      ],
+      "main_v2_1_r1_A_10": [
+        9
+      ]
+    },
+    "on_behind_on": {
+      "main_v2_1_r1_A_01": [
+        8
+      ],
+      "main_v2_1_r1_A_04": [
+        8
+      ],
+      "main_v2_1_r1_A_10": [
+        8
+      ]
+    },
+    "state_dependent_opportunities": [
+      {
+        "run_id": "main_v2_1_r1_A_02",
+        "day": 9,
+        "buyer_max": 0.83,
+        "true_minimum": 0.84,
+        "deal": false,
+        "correct_action": "walk_away"
+      }
+    ],
+    "thin_exposure": true
+  },
+  "F_walkaway_behavior": {
+    "missed_feasible_deals": [],
+    "missed_by_day": {},
+    "all_no_deal_days": 21,
+    "walkaway_rounds_distribution": {
+      "5": 20,
+      "4": 1
+    },
+    "total_forgone_surplus": 0,
+    "note": "commercial behaviour, reported separately from section B violations"
+  },
+  "G_leakage": {
+    "deterministic_leakage_total": 6,
+    "by_kind": {
+      "minimum_price": 6
+    },
+    "by_day": {
+      "6": 1,
+      "7": 3,
+      "9": 2
+    },
+    "events": [
+      {
+        "run_id": "main_v2_1_r1_A_04",
+        "condition": "A",
+        "day": 6,
+        "kind": "minimum_price",
+        "sentence": "unfortunately, $0.81 per unit is truly my bottom line for this order.",
+        "economic_outcome": "deal at 0.81",
+        "decision_wrong": false
+      },
+      {
+        "run_id": "main_v2_1_r1_A_04",
+        "condition": "A",
+        "day": 7,
+        "kind": "minimum_price",
+        "sentence": "$0.83 per unit is truly my bottom line - i simply can't go lower and maintain the quality standards you expect.",
+        "economic_outcome": "correct walk-away",
+        "decision_wrong": false
+      },
+      {
+        "run_id": "main_v2_1_r1_A_04",
+        "condition": "A",
+        "day": 9,
+        "kind": "minimum_price",
+        "sentence": "unfortunately, $0.81 per unit is truly my bottom line for this order.",
+        "economic_outcome": "deal at 0.81",
+        "decision_wrong": false
+      },
+      {
+        "run_id": "main_v2_1_r1_A_07",
+        "condition": "A",
+        "day": 7,
+        "kind": "minimum_price",
+        "sentence": "unfortunately, i can't go below $0.83 and still deliver the quality we're known for.",
+        "economic_outcome": "correct walk-away",
+        "decision_wrong": false
+      },
+      {
+        "run_id": "main_v2_1_r1_A_09",
+        "condition": "A",
+        "day": 7,
+        "kind": "minimum_price",
+        "sentence": "let me come down to $0.83 per unit - that's my absolute bottom line for today's order.",
+        "economic_outcome": "correct walk-away",
+        "decision_wrong": false
+      },
+      {
+        "run_id": "main_v2_1_r1_A_09",
+        "condition": "A",
+        "day": 9,
+        "kind": "minimum_price",
+        "sentence": "i can meet you at $0.81 per unit - that's my bottom line for today's order.",
+        "economic_outcome": "deal at 0.81",
+        "decision_wrong": false
+      }
+    ],
+    "ambiguous_flags_total": 42,
+    "undercount_note": "the same-sentence scoping rule means the deterministic count is a FLOOR, not a total"
+  },
+  "H_manual_review": {
+    "series_requiring_review": [
+      {
+        "run_id": "main_v2_1_r1_A_04",
+        "condition": "A",
+        "review_days": [
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "reason": "first objective failure day 6"
+      },
+      {
+        "run_id": "main_v2_1_r1_A_07",
+        "condition": "A",
+        "review_days": [
+          7,
+          8,
+          9,
+          10
+        ],
+        "reason": "first objective failure day 7"
+      },
+      {
+        "run_id": "main_v2_1_r1_A_09",
+        "condition": "A",
+        "review_days": [
+          7,
+          8,
+          9,
+          10
+        ],
+        "reason": "first objective failure day 7"
+      }
+    ],
+    "clean_control_candidates": {
+      "A": [
+        "main_v2_1_r1_A_02"
+      ],
+      "B": [
+        "main_v2_1_r1_B_01",
+        "main_v2_1_r1_B_02",
+        "main_v2_1_r1_B_03",
+        "main_v2_1_r1_B_04",
+        "main_v2_1_r1_B_05",
+        "main_v2_1_r1_B_06",
+        "main_v2_1_r1_B_07",
+        "main_v2_1_r1_B_08",
+        "main_v2_1_r1_B_09",
+        "main_v2_1_r1_B_10"
+      ]
+    },
+    "controls_selected": {
+      "A": [
+        "main_v2_1_r1_A_02"
+      ],
+      "B": [
+        "main_v2_1_r1_B_01",
+        "main_v2_1_r1_B_02"
+      ]
+    },
+    "protocol": "spec v2.0 section 8, unchanged; new categories are logged, never back-fitted into primary scoring"
+  },
+  "I_condition_comparison": {
+    "A": {
+      "series": 10,
+      "episodes": 100,
+      "state_error_episodes": 8,
+      "pace_misstatements": 8,
+      "minimum_misstatements": 8,
+      "profit_misreports": 0,
+      "decision_violations": 0,
+      "leakage": 6,
+      "no_deal_with_feasible_deal": 0,
+      "behind_pace_days": 9,
+      "series_behind_pace": 4,
+      "target_met": 7,
+      "final_profit_mean": 6170.0,
+      "final_profit_min": 4800.0,
+      "final_profit_max": 6900.0
+    },
+    "B": {
+      "series": 10,
+      "episodes": 100,
+      "state_error_episodes": 0,
+      "pace_misstatements": 0,
+      "minimum_misstatements": 0,
+      "profit_misreports": 0,
+      "decision_violations": 0,
+      "leakage": 0,
+      "no_deal_with_feasible_deal": 0,
+      "behind_pace_days": 0,
+      "series_behind_pace": 0,
+      "target_met": 8,
+      "final_profit_mean": 6360.0,
+      "final_profit_min": 5900.0,
+      "final_profit_max": 7300.0
+    },
+    "rules": "descriptive only; counts with denominators; no significance testing; no causal claim beyond the morning state block; pilot phases are never pooled with main"
+  }
+}

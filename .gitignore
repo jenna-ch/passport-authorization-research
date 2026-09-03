@@ -1,0 +1,79 @@
+# =====================================================================
+# Credentials — never commit.
+#
+# The original working copy carried live Anthropic API keys in cell-local
+# .env files (and one .env.identity-linked.bak). Those keys must be rotated
+# externally before this repository is initialized; see README.md,
+# "Environment and credentials".
+# =====================================================================
+.env
+.env.*
+*.env
+# ...but the credential TEMPLATE is tracked deliberately.
+# This negation must stay AFTER the .env.* rule above to take effect.
+!.env.example
+
+# =====================================================================
+# Python caches (regenerated on demand; never authoritative)
+# =====================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# =====================================================================
+# Editor / IDE local state
+#   .idea/ was present in study2_repeated_negotiation/ (PyCharm project state)
+# =====================================================================
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# =====================================================================
+# Local Claude Code state
+#   negotiation_exp/.claude/settings.local.json held machine-local
+#   tool permissions. Shared .claude config, if ever added, stays tracked.
+#   The `**/` prefix is required: a pattern containing a slash is anchored
+#   to this file's directory, so a bare `.claude/settings.local.json` would
+#   match only at the repository root and miss the per-cell copies.
+# =====================================================================
+**/.claude/settings.local.json
+
+# =====================================================================
+# OS junk
+# =====================================================================
+Thumbs.db
+ehthumbs.db
+desktop.ini
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# =====================================================================
+# Machine-specific / transient build artifacts
+#   None of the following were present in the audited tree; listed to keep
+#   them out if a future reader runs tooling inside the repository.
+# =====================================================================
+node_modules/
+.vite/
+.venv/
+venv/
+env/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# =====================================================================
+# NOT ignored, deliberately — these look like junk but are research record:
+#   phase3_p3b_enforcement/runs/_to_delete/   historical test scratch (documented)
+#   study2_repeated_negotiation/runs/_probe.txt, runs/pilot_stdout.log
+#   study2_repeated_negotiation/runs/main_v2_1/DO_NOT_USE.md
+#   study2_repeated_negotiation/runs/aborted_main_v2_1_credit/ABORTED.md
+#   study3_pilot/runs/_sample_fake/           fabricated format examples
+#   study3_pilot*/reading_log_template.md     referenced by run_pilot.py
+# Do not add ignore rules for anything under a runs/ directory.
+# =====================================================================

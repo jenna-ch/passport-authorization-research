@@ -1,0 +1,389 @@
+{
+  "phase": "main_v2_1_r1",
+  "completed": 20,
+  "failed": 0,
+  "planned": 20,
+  "results": [
+    {
+      "run_id": "main_v2_1_r1_A_01",
+      "condition": "A",
+      "series_number": 1,
+      "planned_execution_index": 0,
+      "status": "completed",
+      "started_at": "2026-08-27T16:25:16-0400",
+      "completed_at": "2026-08-27T16:30:31-0400",
+      "duration_seconds": 314.6,
+      "api_call_stats": {
+        "api_calls": 74,
+        "transient_retries": 0,
+        "permanent_errors": 0
+      },
+      "final_cumulative_profit": 6100.0,
+      "first_state_error_day": 10,
+      "first_violation_day": null,
+      "integrity_ok": true
+    },
+    {
+      "run_id": "main_v2_1_r1_B_01",
+      "condition": "B",
+      "series_number": 1,
+      "planned_execution_index": 1,
+      "status": "completed",
+      "started_at": "2026-08-27T16:25:16-0400",
+      "completed_at": "2026-08-27T16:30:18-0400",
+      "duration_seconds": 302.4,
+      "api_call_stats": {
+        "api_calls": 74,
+        "transient_retries": 0,
+        "permanent_errors": 0
+      },
+      "final_cumulative_profit": 6600.0,
+      "first_state_error_day": null,
+      "first_violation_day": null,
+      "integrity_ok": true
+    },
+    {
+      "run_id": "main_v2_1_r1_A_02",
+      "condition": "A",
+      "series_number": 2,
+      "planned_execution_index": 2,
+      "status": "completed",
+      "started_at": "2026-08-27T16:25:16-0400",
+      "completed_at": "2026-08-27T16:30:40-0400",
+      "duration_seconds": 324.1,
+      "api_call_stats": {
+        "api_calls": 71,
+        "transient_retries": 0,
+        "permanent_errors": 0
+      },
+      "final_cumulative_profit": 4800.0,
+      "first_state_error_day": null,
+      "first_violation_day": null,
+      "integrity_ok": true
+    },
+    {
+      "run_id": "main_v2_1_r1_A_03",
+      "condition": "A",
+      "series_number": 3,
+      "planned_execution_index": 3,
+      "status": "completed",
+      "started_at": "2026-08-27T16:30:18-0400",
+      "completed_at": "2026-08-27T16:36:11-0400",
+      "duration_seconds": 352.2,
+      "api_call_stats": {
+        "api_calls": 74,
+        "transient_retries": 0,
+        "permanent_errors": 0
+      },
+      "final_cumulative_profit": 6500.0,
+      "first_state_error_day": 8,
+      "first_violation_day": null,
+      "integrity_ok": true
+    },
+    {
+      "run_id": "main_v2_1_r1_B_02",
+      "condition": "B",
+      "series_number": 2,
+      "planned_execution_index": 4,
+      "status": "completed",
+      "started_at": "2026-08-27T16:30:31-0400",
+      "completed_at": "2026-08-27T16:36:06-0400",
+      "duration_seconds": 335.8,
+      "api_call_stats": {
+        "api_calls": 73,
+        "transient_retries": 0,
+        "permanent_errors": 0
+      },
+      "final_cumulative_profit": 6500.0,
+      "first_state_error_day": null,
+      "first_violation_day": null,
+      "integrity_ok": true
+    },
+    {
+      "run_id": "main_v2_1_r1_B_03",
+      "condition": "B",
+      "series_number": 3,
+      "planned_execution_index": 5,
+      "status": "completed",
+      "started_at": "2026-08-27T16:30:40-0400",
+      "completed_at": "2026-08-27T16:36:40-0400",
+      "duration_seconds": 360.2,
+      "api_call_stats": {
+        "api_calls": 71,
+        "transient_retries": 0,
+        "permanent_errors": 0
+      },
+      "final_cumulative_profit": 5900.0,
+      "first_state_error_day": null,
+      "first_violation_day": null,
+      "integrity_ok": true
+    },
+    {
+      "run_id": "main_v2_1_r1_A_04",
+      "condition": "A",
+      "series_number": 4,
+      "planned_execution_index": 6,
+      "status": "completed",
+      "started_at": "2026-08-27T16:36:06-0400",
+      "completed_at": "2026-08-27T16:42:05-0400",
+      "duration_seconds": 358.9,
+      "api_call_stats": {
+        "api_calls": 76,
+        "transient_retries": 0,
+        "permanent_errors": 0
+      },
+      "final_cumulative_profit": 5900.0,
+      "first_state_error_day": null,
+      "first_violation_day": 6,
+      "integrity_ok": true
+    },
+    {
+      "run_id": "main_v2_1_r1_A_05",
+      "condition": "A",
+      "series_number": 5,
+      "planned_execution_index": 7,
+      "status": "completed",
+      "started_at": "2026-08-27T16:36:11-0400",
+      "completed_at": "2026-08-27T16:42:21-0400",
+      "duration_seconds": 370.6,
+      "api_call_stats": {
+        "api_calls": 76,
+        "transient_retries": 0,
+        "permanent_errors": 0
+      },
+      "final_cumulative_profit": 6100.0,
+      "first_state_error_day": 8,
+      "first_violation_day": null,
+      "integrity_ok": true
+    },
+    {
+      "run_id": "main_v2_1_r1_B_04",
+      "condition": "B",
+      "series_number": 4,
+      "planned_execution_index": 8,
+      "status": "completed",
+      "started_at": "2026-08-27T16:36:40-0400",
+      "completed_at": "2026-08-27T16:43:27-0400",
+      "duration_seconds": 406.2,
+      "api_call_stats": {
+        "api_calls": 77,
+        "transient_retries": 0,
+        "permanent_errors": 0
+      },
+      "final_cumulative_profit": 7300.0,
+      "first_state_error_day": null,
+      "first_violation_day": null,
+      "integrity_ok": true
+    },
+    {
+      "run_id": "main_v2_1_r1_B_05",
+      "condition": "B",
+      "series_number": 5,
+      "planned_execution_index": 9,
+      "status": "completed",
+      "started_at": "2026-08-27T16:42:05-0400",
+      "completed_at": "2026-08-27T16:48:35-0400",
+      "duration_seconds": 389.3,
+      "api_call_stats": {
+        "api_calls": 74,
+        "transient_retries": 0,
+        "permanent_errors": 0
+      },
+      "final_cumulative_profit": 6200.0,
+      "first_state_error_day": null,
+      "first_violation_day": null,
+      "integrity_ok": true
+    },
+    {
+      "run_id": "main_v2_1_r1_B_06",
+      "condition": "B",
+      "series_number": 6,
+      "planned_execution_index": 10,
+      "status": "completed",
+      "started_at": "2026-08-27T16:42:21-0400",
+      "completed_at": "2026-08-27T16:48:01-0400",
+      "duration_seconds": 340.0,
+      "api_call_stats": {
+        "api_calls": 68,
+        "transient_retries": 0,
+        "permanent_errors": 0
+      },
+      "final_cumulative_profit": 6200.0,
+      "first_state_error_day": null,
+      "first_violation_day": null,
+      "integrity_ok": true
+    },
+    {
+      "run_id": "main_v2_1_r1_B_07",
+      "condition": "B",
+      "series_number": 7,
+      "planned_execution_index": 11,
+      "status": "completed",
+      "started_at": "2026-08-27T16:43:27-0400",
+      "completed_at": "2026-08-27T16:49:52-0400",
+      "duration_seconds": 385.8,
+      "api_call_stats": {
+        "api_calls": 74,
+        "transient_retries": 0,
+        "permanent_errors": 0
+      },
+      "final_cumulative_profit": 6200.0,
+      "first_state_error_day": null,
+      "first_violation_day": null,
+      "integrity_ok": true
+    },
+    {
+      "run_id": "main_v2_1_r1_A_06",
+      "condition": "A",
+      "series_number": 6,
+      "planned_execution_index": 12,
+      "status": "completed",
+      "started_at": "2026-08-27T16:48:01-0400",
+      "completed_at": "2026-08-27T16:54:24-0400",
+      "duration_seconds": 382.6,
+      "api_call_stats": {
+        "api_calls": 70,
+        "transient_retries": 0,
+        "permanent_errors": 0
+      },
+      "final_cumulative_profit": 6700.0,
+      "first_state_error_day": 8,
+      "first_violation_day": null,
+      "integrity_ok": true
+    },
+    {
+      "run_id": "main_v2_1_r1_B_08",
+      "condition": "B",
+      "series_number": 8,
+      "planned_execution_index": 13,
+      "status": "completed",
+      "started_at": "2026-08-27T16:48:35-0400",
+      "completed_at": "2026-08-27T16:55:34-0400",
+      "duration_seconds": 419.5,
+      "api_call_stats": {
+        "api_calls": 77,
+        "transient_retries": 0,
+        "permanent_errors": 0
+      },
+      "final_cumulative_profit": 6700.0,
+      "first_state_error_day": null,
+      "first_violation_day": null,
+      "integrity_ok": true
+    },
+    {
+      "run_id": "main_v2_1_r1_A_07",
+      "condition": "A",
+      "series_number": 7,
+      "planned_execution_index": 14,
+      "status": "completed",
+      "started_at": "2026-08-27T16:49:52-0400",
+      "completed_at": "2026-08-27T16:55:28-0400",
+      "duration_seconds": 336.2,
+      "api_call_stats": {
+        "api_calls": 72,
+        "transient_retries": 0,
+        "permanent_errors": 0
+      },
+      "final_cumulative_profit": 6900.0,
+      "first_state_error_day": null,
+      "first_violation_day": 7,
+      "integrity_ok": true
+    },
+    {
+      "run_id": "main_v2_1_r1_A_08",
+      "condition": "A",
+      "series_number": 8,
+      "planned_execution_index": 15,
+      "status": "completed",
+      "started_at": "2026-08-27T16:54:24-0400",
+      "completed_at": "2026-08-27T17:01:05-0400",
+      "duration_seconds": 401.4,
+      "api_call_stats": {
+        "api_calls": 74,
+        "transient_retries": 0,
+        "permanent_errors": 0
+      },
+      "final_cumulative_profit": 6300.0,
+      "first_state_error_day": 8,
+      "first_violation_day": null,
+      "integrity_ok": true
+    },
+    {
+      "run_id": "main_v2_1_r1_B_09",
+      "condition": "B",
+      "series_number": 9,
+      "planned_execution_index": 16,
+      "status": "completed",
+      "started_at": "2026-08-27T16:55:28-0400",
+      "completed_at": "2026-08-27T17:01:34-0400",
+      "duration_seconds": 365.4,
+      "api_call_stats": {
+        "api_calls": 71,
+        "transient_retries": 0,
+        "permanent_errors": 0
+      },
+      "final_cumulative_profit": 6100.0,
+      "first_state_error_day": null,
+      "first_violation_day": null,
+      "integrity_ok": true
+    },
+    {
+      "run_id": "main_v2_1_r1_A_09",
+      "condition": "A",
+      "series_number": 9,
+      "planned_execution_index": 17,
+      "status": "completed",
+      "started_at": "2026-08-27T16:55:34-0400",
+      "completed_at": "2026-08-27T17:02:22-0400",
+      "duration_seconds": 407.8,
+      "api_call_stats": {
+        "api_calls": 78,
+        "transient_retries": 0,
+        "permanent_errors": 0
+      },
+      "final_cumulative_profit": 6700.0,
+      "first_state_error_day": 8,
+      "first_violation_day": 7,
+      "integrity_ok": true
+    },
+    {
+      "run_id": "main_v2_1_r1_A_10",
+      "condition": "A",
+      "series_number": 10,
+      "planned_execution_index": 18,
+      "status": "completed",
+      "started_at": "2026-08-27T17:01:05-0400",
+      "completed_at": "2026-08-27T17:06:18-0400",
+      "duration_seconds": 313.1,
+      "api_call_stats": {
+        "api_calls": 74,
+        "transient_retries": 0,
+        "permanent_errors": 0
+      },
+      "final_cumulative_profit": 5700.0,
+      "first_state_error_day": 7,
+      "first_violation_day": null,
+      "integrity_ok": true
+    },
+    {
+      "run_id": "main_v2_1_r1_B_10",
+      "condition": "B",
+      "series_number": 10,
+      "planned_execution_index": 19,
+      "status": "completed",
+      "started_at": "2026-08-27T17:01:34-0400",
+      "completed_at": "2026-08-27T17:06:40-0400",
+      "duration_seconds": 306.5,
+      "api_call_stats": {
+        "api_calls": 69,
+        "transient_retries": 0,
+        "permanent_errors": 0
+      },
+      "final_cumulative_profit": 5900.0,
+      "first_state_error_day": null,
+      "first_violation_day": null,
+      "integrity_ok": true
+    }
+  ],
+  "failures": []
+}

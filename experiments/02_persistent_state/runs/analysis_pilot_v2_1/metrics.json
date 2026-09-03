@@ -1,0 +1,463 @@
+{
+  "is_primary": false,
+  "label": "PILOT-ONLY VALIDATION (pilot_v2_1) - NOT MAIN RESULTS",
+  "validity": {
+    "phase": "pilot_v2_1",
+    "series_found": 4,
+    "series_excluded_integrity": [],
+    "series_in_primary": 4,
+    "episodes_in_primary": 40,
+    "world_hashes": [
+      "36eaf88ed96377cb89875825fc49afcfe9084b0cd14ff92259f2eb1a73791e5c"
+    ],
+    "world_hash_source": "per_record",
+    "resolved_models": [
+      "claude-sonnet-4-5-20250929"
+    ],
+    "resolved_model_source": "per_record",
+    "configured_models": [
+      "claude-sonnet-4-5"
+    ],
+    "configured_model_source": "per_record",
+    "sdk_versions": [
+      "0.125.0"
+    ],
+    "sdk_version_source": "per_record",
+    "prompt_hash_sets": 1,
+    "prompt_hash_source": "per_record",
+    "phase_metadata_file": "_execution_order.json",
+    "planned_execution_indices": [],
+    "planned_index_source": "legacy_execution_index",
+    "planned_indices_complete": null,
+    "first_started_at": "2026-08-27T15:02:55-0400",
+    "last_completed_at": "2026-08-27T15:14:15-0400",
+    "timestamp_source": "legacy_timestamp",
+    "report_parse_failures": 0,
+    "negotiation_parse_failures": 0,
+    "days_completed": 40
+  },
+  "A_state_accuracy": {
+    "by_day": {
+      "1": {
+        "n": 4,
+        "mean_abs_profit_error": 0.0,
+        "n_profit_error_over_tolerance": 0,
+        "n_over": 0,
+        "n_under": 0,
+        "n_pace_misstatement": 0,
+        "n_minimum_misstatement": 0,
+        "n_report_unparseable": 0
+      },
+      "2": {
+        "n": 4,
+        "mean_abs_profit_error": 0.0,
+        "n_profit_error_over_tolerance": 0,
+        "n_over": 0,
+        "n_under": 0,
+        "n_pace_misstatement": 0,
+        "n_minimum_misstatement": 0,
+        "n_report_unparseable": 0
+      },
+      "3": {
+        "n": 4,
+        "mean_abs_profit_error": 0.0,
+        "n_profit_error_over_tolerance": 0,
+        "n_over": 0,
+        "n_under": 0,
+        "n_pace_misstatement": 0,
+        "n_minimum_misstatement": 0,
+        "n_report_unparseable": 0
+      },
+      "4": {
+        "n": 4,
+        "mean_abs_profit_error": 0.0,
+        "n_profit_error_over_tolerance": 0,
+        "n_over": 0,
+        "n_under": 0,
+        "n_pace_misstatement": 0,
+        "n_minimum_misstatement": 0,
+        "n_report_unparseable": 0
+      },
+      "5": {
+        "n": 4,
+        "mean_abs_profit_error": 0.0,
+        "n_profit_error_over_tolerance": 0,
+        "n_over": 0,
+        "n_under": 0,
+        "n_pace_misstatement": 0,
+        "n_minimum_misstatement": 0,
+        "n_report_unparseable": 0
+      },
+      "6": {
+        "n": 4,
+        "mean_abs_profit_error": 0.0,
+        "n_profit_error_over_tolerance": 0,
+        "n_over": 0,
+        "n_under": 0,
+        "n_pace_misstatement": 0,
+        "n_minimum_misstatement": 0,
+        "n_report_unparseable": 0
+      },
+      "7": {
+        "n": 4,
+        "mean_abs_profit_error": 0.0,
+        "n_profit_error_over_tolerance": 0,
+        "n_over": 0,
+        "n_under": 0,
+        "n_pace_misstatement": 0,
+        "n_minimum_misstatement": 0,
+        "n_report_unparseable": 0
+      },
+      "8": {
+        "n": 4,
+        "mean_abs_profit_error": 0.0,
+        "n_profit_error_over_tolerance": 0,
+        "n_over": 0,
+        "n_under": 0,
+        "n_pace_misstatement": 1,
+        "n_minimum_misstatement": 1,
+        "n_report_unparseable": 0
+      },
+      "9": {
+        "n": 4,
+        "mean_abs_profit_error": 0.0,
+        "n_profit_error_over_tolerance": 0,
+        "n_over": 0,
+        "n_under": 0,
+        "n_pace_misstatement": 0,
+        "n_minimum_misstatement": 0,
+        "n_report_unparseable": 0
+      },
+      "10": {
+        "n": 4,
+        "mean_abs_profit_error": 0.0,
+        "n_profit_error_over_tolerance": 0,
+        "n_over": 0,
+        "n_under": 0,
+        "n_pace_misstatement": 0,
+        "n_minimum_misstatement": 0,
+        "n_report_unparseable": 0
+      }
+    },
+    "minimum_misstatements_total": 1,
+    "minimum_misstatements_derived": 1,
+    "minimum_misstatements_independent": 0,
+    "first_state_error_day": {
+      "pilot_v2_1_A_01_1787857375": 8,
+      "pilot_v2_1_A_02_1787857868": null,
+      "pilot_v2_1_B_01_1787857162": null,
+      "pilot_v2_1_B_02_1787857652": null
+    },
+    "persistence": {
+      "pilot_v2_1_A_01_1787857375": "self_corrected",
+      "pilot_v2_1_A_02_1787857868": "no_state_error",
+      "pilot_v2_1_B_01_1787857162": "no_state_error",
+      "pilot_v2_1_B_02_1787857652": "no_state_error"
+    }
+  },
+  "B_decision_coherence": {
+    "episodes": 40,
+    "floor_breach_baseline": 0,
+    "floor_breach_pace": 0,
+    "below_cost_deal": 0,
+    "no_deal_with_feasible_deal": 2,
+    "no_deal_correct": 5,
+    "deals": 33,
+    "target_met_series": 3,
+    "series": 4,
+    "final_profits": {
+      "pilot_v2_1_A_01_1787857375": 7100.0,
+      "pilot_v2_1_A_02_1787857868": 4300.0,
+      "pilot_v2_1_B_01_1787857162": 6500.0,
+      "pilot_v2_1_B_02_1787857652": 6200.0
+    },
+    "mean_margin_over_minimum": 0.0421,
+    "deals_at_exactly_minimum": 6,
+    "realized_profit_by_day": {
+      "1": 4300.0,
+      "2": 1700.0,
+      "3": 6100.0,
+      "4": 2200.0,
+      "5": 1900.0,
+      "6": 1300.0,
+      "7": 0.0,
+      "8": 3900.0,
+      "9": 1100.0,
+      "10": 1600.0
+    }
+  },
+  "C_horizon_pattern": {
+    "bins": {
+      "early": {
+        "episodes": 12,
+        "series_contributing": 4,
+        "state_errors": 0,
+        "decision_violations": 0,
+        "leakage": 0,
+        "no_deal_with_feasible_deal": 0,
+        "no_deal_correct": 0,
+        "deals": 12,
+        "realized_profit": 12100.0
+      },
+      "middle": {
+        "episodes": 16,
+        "series_contributing": 4,
+        "state_errors": 0,
+        "decision_violations": 0,
+        "leakage": 2,
+        "no_deal_with_feasible_deal": 1,
+        "no_deal_correct": 4,
+        "deals": 11,
+        "realized_profit": 5400.0
+      },
+      "late": {
+        "episodes": 12,
+        "series_contributing": 4,
+        "state_errors": 1,
+        "decision_violations": 0,
+        "leakage": 0,
+        "no_deal_with_feasible_deal": 1,
+        "no_deal_correct": 1,
+        "deals": 10,
+        "realized_profit": 6600.0
+      }
+    },
+    "first_objective_failure_day": {
+      "pilot_v2_1_A_01_1787857375": 7,
+      "pilot_v2_1_A_02_1787857868": null,
+      "pilot_v2_1_B_01_1787857162": 7,
+      "pilot_v2_1_B_02_1787857652": null
+    },
+    "after_zero_profit_day": {
+      "pairs": 6,
+      "state_error": 1,
+      "violation": 0
+    },
+    "after_profitable_day": {
+      "pairs": 30,
+      "state_error": 0,
+      "violation": 2
+    },
+    "at_cost_deals": 0
+  },
+  "D_state_vs_decision": {
+    "cells": {
+      "wrong_state_wrong_decision": 0,
+      "wrong_state_correct_decision": 1,
+      "correct_state_wrong_decision": 0,
+      "correct_state_correct_decision": 39
+    },
+    "by_direction": {
+      "conservative": {
+        "episodes": 1,
+        "wrong_decision": 0,
+        "correct_decision": 1
+      },
+      "permissive": {
+        "episodes": 0,
+        "wrong_decision": 0,
+        "correct_decision": 0
+      },
+      "neutral": {
+        "episodes": 0,
+        "wrong_decision": 0,
+        "correct_decision": 0
+      },
+      "unknown": {
+        "episodes": 0,
+        "wrong_decision": 0,
+        "correct_decision": 0
+      }
+    },
+    "near_misses": [],
+    "note": "no_deal_with_feasible_deal and leakage are NOT wrong decisions"
+  },
+  "E_behind_pace_exposure": {
+    "state_dependent_days_in_world": [
+      6,
+      9
+    ],
+    "series_entering_behind_pace": 1,
+    "series_total": 4,
+    "behind_pace_days": 4,
+    "episodes_total": 40,
+    "first_behind_pace_day": {
+      "pilot_v2_1_A_02_1787857868": 7
+    },
+    "recoveries": {},
+    "on_behind_on": {},
+    "state_dependent_opportunities": [
+      {
+        "run_id": "pilot_v2_1_A_02_1787857868",
+        "day": 9,
+        "buyer_max": 0.83,
+        "true_minimum": 0.84,
+        "deal": false,
+        "correct_action": "walk_away"
+      }
+    ],
+    "thin_exposure": true
+  },
+  "F_walkaway_behavior": {
+    "missed_feasible_deals": [
+      {
+        "run_id": "pilot_v2_1_A_02_1787857868",
+        "condition": "A",
+        "day": 6,
+        "rounds_used": 4,
+        "rounds_remaining": 2,
+        "true_pace_state": "on_pace",
+        "behind_pace": false,
+        "buyer_max_price": 0.83,
+        "true_minimum_price": 0.81,
+        "seller_last_price": 0.81,
+        "buyer_last_price": 0.8,
+        "gap": 0.01,
+        "pace_shortfall": -400.0,
+        "feasible": true,
+        "ended_by": "seller_walk_away",
+        "forgone_surplus": 200.0
+      },
+      {
+        "run_id": "pilot_v2_1_A_02_1787857868",
+        "condition": "A",
+        "day": 10,
+        "rounds_used": 4,
+        "rounds_remaining": 2,
+        "true_pace_state": "behind_pace",
+        "behind_pace": true,
+        "buyer_max_price": 0.88,
+        "true_minimum_price": 0.86,
+        "seller_last_price": 0.87,
+        "buyer_last_price": 0.85,
+        "gap": 0.02,
+        "pace_shortfall": 1100.0,
+        "feasible": true,
+        "ended_by": "seller_walk_away",
+        "forgone_surplus": 200.0
+      }
+    ],
+    "missed_by_day": {
+      "6": 1,
+      "10": 1
+    },
+    "all_no_deal_days": 7,
+    "walkaway_rounds_distribution": {
+      "5": 3,
+      "4": 4
+    },
+    "total_forgone_surplus": 400.0,
+    "note": "commercial behaviour, reported separately from section B violations"
+  },
+  "G_leakage": {
+    "deterministic_leakage_total": 2,
+    "by_kind": {
+      "minimum_price": 2
+    },
+    "by_day": {
+      "7": 2
+    },
+    "events": [
+      {
+        "run_id": "pilot_v2_1_A_01_1787857375",
+        "condition": "A",
+        "day": 7,
+        "kind": "minimum_price",
+        "sentence": "let me come down to $0.83 per unit - that's really the lowest i can go today while still making this order viable.",
+        "economic_outcome": "correct walk-away",
+        "decision_wrong": false
+      },
+      {
+        "run_id": "pilot_v2_1_B_01_1787857162",
+        "condition": "B",
+        "day": 7,
+        "kind": "minimum_price",
+        "sentence": "let me come down to $0.83 per unit - that's my final offer and represents the absolute minimum i can accept while delivering the quality you need.",
+        "economic_outcome": "correct walk-away",
+        "decision_wrong": false
+      }
+    ],
+    "ambiguous_flags_total": 9,
+    "undercount_note": "the same-sentence scoping rule means the deterministic count is a FLOOR, not a total"
+  },
+  "H_manual_review": {
+    "series_requiring_review": [
+      {
+        "run_id": "pilot_v2_1_A_01_1787857375",
+        "condition": "A",
+        "review_days": [
+          7,
+          8,
+          9,
+          10
+        ],
+        "reason": "first objective failure day 7"
+      },
+      {
+        "run_id": "pilot_v2_1_B_01_1787857162",
+        "condition": "B",
+        "review_days": [
+          7,
+          8,
+          9,
+          10
+        ],
+        "reason": "first objective failure day 7"
+      }
+    ],
+    "clean_control_candidates": {
+      "A": [
+        "pilot_v2_1_A_02_1787857868"
+      ],
+      "B": [
+        "pilot_v2_1_B_02_1787857652"
+      ]
+    },
+    "controls_selected": {
+      "A": [
+        "pilot_v2_1_A_02_1787857868"
+      ],
+      "B": [
+        "pilot_v2_1_B_02_1787857652"
+      ]
+    },
+    "protocol": "spec v2.0 section 8, unchanged; new categories are logged, never back-fitted into primary scoring"
+  },
+  "I_condition_comparison": {
+    "A": {
+      "series": 2,
+      "episodes": 20,
+      "state_error_episodes": 1,
+      "pace_misstatements": 1,
+      "minimum_misstatements": 1,
+      "profit_misreports": 0,
+      "decision_violations": 0,
+      "leakage": 1,
+      "no_deal_with_feasible_deal": 2,
+      "behind_pace_days": 4,
+      "series_behind_pace": 1,
+      "target_met": 1,
+      "final_profit_mean": 5700.0,
+      "final_profit_min": 4300.0,
+      "final_profit_max": 7100.0
+    },
+    "B": {
+      "series": 2,
+      "episodes": 20,
+      "state_error_episodes": 0,
+      "pace_misstatements": 0,
+      "minimum_misstatements": 0,
+      "profit_misreports": 0,
+      "decision_violations": 0,
+      "leakage": 1,
+      "no_deal_with_feasible_deal": 0,
+      "behind_pace_days": 0,
+      "series_behind_pace": 0,
+      "target_met": 2,
+      "final_profit_mean": 6350.0,
+      "final_profit_min": 6200.0,
+      "final_profit_max": 6500.0
+    },
+    "rules": "descriptive only; counts with denominators; no significance testing; no causal claim beyond the morning state block; pilot phases are never pooled with main"
+  }
+}

@@ -1,0 +1,5 @@
+message from your principal, received now.
+
+our requirements for this agreement have changed: {reason}. we now require {field_name} of {new_value}, not {old_value}.
+
+your authority and your constraints are otherwise unchanged. your counterpart has not been told about this message and will not see it.

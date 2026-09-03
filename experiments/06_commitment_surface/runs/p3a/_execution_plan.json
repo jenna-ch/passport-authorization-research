@@ -1,0 +1,814 @@
+{
+  "schema": "p3b.execution_plan.v1",
+  "cell": "P3-B",
+  "design_of_record": "phase3_design_of_record.md section 3",
+  "order_seed": 20260825,
+  "n_per_arm": 40,
+  "n_total": 80,
+  "arm_counts": {
+    "A-both": 40,
+    "A-declared": 40
+  },
+  "arms": {
+    "A-both": {
+      "arm": "A-both",
+      "seller_prompt_file": "seller_system.txt",
+      "seller_prompt_sha16": "d4005aaea3b9b780",
+      "commitment_semantics_declared": false,
+      "enforcement_active": false,
+      "enforcement_announced": false,
+      "action_space": [
+        "counter",
+        "accept",
+        "walk_away"
+      ],
+      "commitment_paths": [
+        "counter",
+        "accept"
+      ],
+      "max_attempts_per_turn": 1
+    },
+    "A-declared": {
+      "arm": "A-declared",
+      "seller_prompt_file": "seller_system_declared.txt",
+      "seller_prompt_sha16": "3142634d8ccf083c",
+      "commitment_semantics_declared": true,
+      "enforcement_active": false,
+      "enforcement_announced": false,
+      "action_space": [
+        "counter",
+        "accept",
+        "walk_away"
+      ],
+      "commitment_paths": [
+        "counter",
+        "accept"
+      ],
+      "max_attempts_per_turn": 1
+    }
+  },
+  "interleaving": "blocks of three; each block is a seeded permutation of the three arms. exactly n_per_arm runs per arm, and balance within every consecutive window of three positions.",
+  "max_consecutive_same_arm": 2,
+  "plan_digest": "a84221ec93fc3e6c",
+  "frozen_comparison": [
+    {
+      "group": "frozen_study1",
+      "file": "agents.py",
+      "p3a_copy": "b9b8da5946ced705",
+      "baseline": "b9b8da5946ced705",
+      "baseline_path": "negotiation_exp/agents.py",
+      "expected": "b9b8da5946ced705",
+      "identical": true
+    },
+    {
+      "group": "frozen_study1",
+      "file": "protocol.py",
+      "p3a_copy": "304a2dd59e0c6c3b",
+      "baseline": "304a2dd59e0c6c3b",
+      "baseline_path": "negotiation_exp/protocol.py",
+      "expected": "304a2dd59e0c6c3b",
+      "identical": true
+    },
+    {
+      "group": "frozen_study1",
+      "file": "tracker.py",
+      "p3a_copy": "285f26c090ec62d7",
+      "baseline": "285f26c090ec62d7",
+      "baseline_path": "negotiation_exp/tracker.py",
+      "expected": "285f26c090ec62d7",
+      "identical": true
+    },
+    {
+      "group": "frozen_study1",
+      "file": "scoring.py",
+      "p3a_copy": "5f34d0cedd193db3",
+      "baseline": "5f34d0cedd193db3",
+      "baseline_path": "negotiation_exp/scoring.py",
+      "expected": "5f34d0cedd193db3",
+      "identical": true
+    },
+    {
+      "group": "frozen_study1",
+      "file": "config.json",
+      "p3a_copy": "5752faec21fe6088",
+      "baseline": "5752faec21fe6088",
+      "baseline_path": "negotiation_exp/config.json",
+      "expected": "5752faec21fe6088",
+      "identical": true
+    },
+    {
+      "group": "frozen_study1",
+      "file": "prompts/seller_system.txt",
+      "p3a_copy": "d4005aaea3b9b780",
+      "baseline": "d4005aaea3b9b780",
+      "baseline_path": "negotiation_exp/prompts/seller_system.txt",
+      "expected": "d4005aaea3b9b780",
+      "identical": true
+    },
+    {
+      "group": "frozen_study1",
+      "file": "prompts/buyer_system.txt",
+      "p3a_copy": "2fccc7bc2b403f3a",
+      "baseline": "2fccc7bc2b403f3a",
+      "baseline_path": "negotiation_exp/prompts/buyer_system.txt",
+      "expected": "2fccc7bc2b403f3a",
+      "identical": true
+    },
+    {
+      "group": "frozen_study1",
+      "file": "prompts/state_block.txt",
+      "p3a_copy": "9ca8af7e68b2474a",
+      "baseline": "9ca8af7e68b2474a",
+      "baseline_path": "negotiation_exp/prompts/state_block.txt",
+      "expected": "9ca8af7e68b2474a",
+      "identical": true
+    },
+    {
+      "group": "frozen_c1",
+      "file": "guard.py",
+      "p3a_copy": "a9cc38648116dab8",
+      "baseline": "a9cc38648116dab8",
+      "baseline_path": "phase2_c1_guard/guard.py",
+      "expected": "a9cc38648116dab8",
+      "identical": true
+    },
+    {
+      "group": "frozen_c1",
+      "file": "frozen_eligibility.py",
+      "p3a_copy": "033580bb02d56a7b",
+      "baseline": "033580bb02d56a7b",
+      "baseline_path": "phase2_c1_guard/frozen_eligibility.py",
+      "expected": "033580bb02d56a7b",
+      "identical": true
+    },
+    {
+      "group": "frozen_p3b",
+      "file": "action_event.py",
+      "p3a_copy": "36e049811448a45a",
+      "baseline": "36e049811448a45a",
+      "baseline_path": "phase3_p3b_enforcement/action_event.py",
+      "expected": "36e049811448a45a",
+      "identical": true
+    }
+  ],
+  "prompt_hashes": {
+    "seller_system_frozen_A_both": "d4005aaea3b9b780",
+    "seller_system_declared_A_declared": "3142634d8ccf083c",
+    "buyer_system": "2fccc7bc2b403f3a",
+    "state_block": "9ca8af7e68b2474a"
+  },
+  "run_id_rule": "run_id = p3b_{position:03d}_{arm}. positions are global and come from this plan, never from a per-invocation counter.",
+  "resumption_rule": "a confirmed invocation skips any position whose output file already exists and never overwrites an existing run.",
+  "positions": [
+    {
+      "position": 1,
+      "block": 1,
+      "slot_in_block": 1,
+      "arm": "A-declared",
+      "run_id": "p3a_001_A-declared"
+    },
+    {
+      "position": 2,
+      "block": 1,
+      "slot_in_block": 2,
+      "arm": "A-both",
+      "run_id": "p3a_002_A-both"
+    },
+    {
+      "position": 3,
+      "block": 2,
+      "slot_in_block": 1,
+      "arm": "A-both",
+      "run_id": "p3a_003_A-both"
+    },
+    {
+      "position": 4,
+      "block": 2,
+      "slot_in_block": 2,
+      "arm": "A-declared",
+      "run_id": "p3a_004_A-declared"
+    },
+    {
+      "position": 5,
+      "block": 3,
+      "slot_in_block": 1,
+      "arm": "A-declared",
+      "run_id": "p3a_005_A-declared"
+    },
+    {
+      "position": 6,
+      "block": 3,
+      "slot_in_block": 2,
+      "arm": "A-both",
+      "run_id": "p3a_006_A-both"
+    },
+    {
+      "position": 7,
+      "block": 4,
+      "slot_in_block": 1,
+      "arm": "A-both",
+      "run_id": "p3a_007_A-both"
+    },
+    {
+      "position": 8,
+      "block": 4,
+      "slot_in_block": 2,
+      "arm": "A-declared",
+      "run_id": "p3a_008_A-declared"
+    },
+    {
+      "position": 9,
+      "block": 5,
+      "slot_in_block": 1,
+      "arm": "A-both",
+      "run_id": "p3a_009_A-both"
+    },
+    {
+      "position": 10,
+      "block": 5,
+      "slot_in_block": 2,
+      "arm": "A-declared",
+      "run_id": "p3a_010_A-declared"
+    },
+    {
+      "position": 11,
+      "block": 6,
+      "slot_in_block": 1,
+      "arm": "A-declared",
+      "run_id": "p3a_011_A-declared"
+    },
+    {
+      "position": 12,
+      "block": 6,
+      "slot_in_block": 2,
+      "arm": "A-both",
+      "run_id": "p3a_012_A-both"
+    },
+    {
+      "position": 13,
+      "block": 7,
+      "slot_in_block": 1,
+      "arm": "A-declared",
+      "run_id": "p3a_013_A-declared"
+    },
+    {
+      "position": 14,
+      "block": 7,
+      "slot_in_block": 2,
+      "arm": "A-both",
+      "run_id": "p3a_014_A-both"
+    },
+    {
+      "position": 15,
+      "block": 8,
+      "slot_in_block": 1,
+      "arm": "A-declared",
+      "run_id": "p3a_015_A-declared"
+    },
+    {
+      "position": 16,
+      "block": 8,
+      "slot_in_block": 2,
+      "arm": "A-both",
+      "run_id": "p3a_016_A-both"
+    },
+    {
+      "position": 17,
+      "block": 9,
+      "slot_in_block": 1,
+      "arm": "A-both",
+      "run_id": "p3a_017_A-both"
+    },
+    {
+      "position": 18,
+      "block": 9,
+      "slot_in_block": 2,
+      "arm": "A-declared",
+      "run_id": "p3a_018_A-declared"
+    },
+    {
+      "position": 19,
+      "block": 10,
+      "slot_in_block": 1,
+      "arm": "A-both",
+      "run_id": "p3a_019_A-both"
+    },
+    {
+      "position": 20,
+      "block": 10,
+      "slot_in_block": 2,
+      "arm": "A-declared",
+      "run_id": "p3a_020_A-declared"
+    },
+    {
+      "position": 21,
+      "block": 11,
+      "slot_in_block": 1,
+      "arm": "A-declared",
+      "run_id": "p3a_021_A-declared"
+    },
+    {
+      "position": 22,
+      "block": 11,
+      "slot_in_block": 2,
+      "arm": "A-both",
+      "run_id": "p3a_022_A-both"
+    },
+    {
+      "position": 23,
+      "block": 12,
+      "slot_in_block": 1,
+      "arm": "A-declared",
+      "run_id": "p3a_023_A-declared"
+    },
+    {
+      "position": 24,
+      "block": 12,
+      "slot_in_block": 2,
+      "arm": "A-both",
+      "run_id": "p3a_024_A-both"
+    },
+    {
+      "position": 25,
+      "block": 13,
+      "slot_in_block": 1,
+      "arm": "A-both",
+      "run_id": "p3a_025_A-both"
+    },
+    {
+      "position": 26,
+      "block": 13,
+      "slot_in_block": 2,
+      "arm": "A-declared",
+      "run_id": "p3a_026_A-declared"
+    },
+    {
+      "position": 27,
+      "block": 14,
+      "slot_in_block": 1,
+      "arm": "A-declared",
+      "run_id": "p3a_027_A-declared"
+    },
+    {
+      "position": 28,
+      "block": 14,
+      "slot_in_block": 2,
+      "arm": "A-both",
+      "run_id": "p3a_028_A-both"
+    },
+    {
+      "position": 29,
+      "block": 15,
+      "slot_in_block": 1,
+      "arm": "A-declared",
+      "run_id": "p3a_029_A-declared"
+    },
+    {
+      "position": 30,
+      "block": 15,
+      "slot_in_block": 2,
+      "arm": "A-both",
+      "run_id": "p3a_030_A-both"
+    },
+    {
+      "position": 31,
+      "block": 16,
+      "slot_in_block": 1,
+      "arm": "A-both",
+      "run_id": "p3a_031_A-both"
+    },
+    {
+      "position": 32,
+      "block": 16,
+      "slot_in_block": 2,
+      "arm": "A-declared",
+      "run_id": "p3a_032_A-declared"
+    },
+    {
+      "position": 33,
+      "block": 17,
+      "slot_in_block": 1,
+      "arm": "A-both",
+      "run_id": "p3a_033_A-both"
+    },
+    {
+      "position": 34,
+      "block": 17,
+      "slot_in_block": 2,
+      "arm": "A-declared",
+      "run_id": "p3a_034_A-declared"
+    },
+    {
+      "position": 35,
+      "block": 18,
+      "slot_in_block": 1,
+      "arm": "A-declared",
+      "run_id": "p3a_035_A-declared"
+    },
+    {
+      "position": 36,
+      "block": 18,
+      "slot_in_block": 2,
+      "arm": "A-both",
+      "run_id": "p3a_036_A-both"
+    },
+    {
+      "position": 37,
+      "block": 19,
+      "slot_in_block": 1,
+      "arm": "A-declared",
+      "run_id": "p3a_037_A-declared"
+    },
+    {
+      "position": 38,
+      "block": 19,
+      "slot_in_block": 2,
+      "arm": "A-both",
+      "run_id": "p3a_038_A-both"
+    },
+    {
+      "position": 39,
+      "block": 20,
+      "slot_in_block": 1,
+      "arm": "A-both",
+      "run_id": "p3a_039_A-both"
+    },
+    {
+      "position": 40,
+      "block": 20,
+      "slot_in_block": 2,
+      "arm": "A-declared",
+      "run_id": "p3a_040_A-declared"
+    },
+    {
+      "position": 41,
+      "block": 21,
+      "slot_in_block": 1,
+      "arm": "A-declared",
+      "run_id": "p3a_041_A-declared"
+    },
+    {
+      "position": 42,
+      "block": 21,
+      "slot_in_block": 2,
+      "arm": "A-both",
+      "run_id": "p3a_042_A-both"
+    },
+    {
+      "position": 43,
+      "block": 22,
+      "slot_in_block": 1,
+      "arm": "A-both",
+      "run_id": "p3a_043_A-both"
+    },
+    {
+      "position": 44,
+      "block": 22,
+      "slot_in_block": 2,
+      "arm": "A-declared",
+      "run_id": "p3a_044_A-declared"
+    },
+    {
+      "position": 45,
+      "block": 23,
+      "slot_in_block": 1,
+      "arm": "A-both",
+      "run_id": "p3a_045_A-both"
+    },
+    {
+      "position": 46,
+      "block": 23,
+      "slot_in_block": 2,
+      "arm": "A-declared",
+      "run_id": "p3a_046_A-declared"
+    },
+    {
+      "position": 47,
+      "block": 24,
+      "slot_in_block": 1,
+      "arm": "A-declared",
+      "run_id": "p3a_047_A-declared"
+    },
+    {
+      "position": 48,
+      "block": 24,
+      "slot_in_block": 2,
+      "arm": "A-both",
+      "run_id": "p3a_048_A-both"
+    },
+    {
+      "position": 49,
+      "block": 25,
+      "slot_in_block": 1,
+      "arm": "A-both",
+      "run_id": "p3a_049_A-both"
+    },
+    {
+      "position": 50,
+      "block": 25,
+      "slot_in_block": 2,
+      "arm": "A-declared",
+      "run_id": "p3a_050_A-declared"
+    },
+    {
+      "position": 51,
+      "block": 26,
+      "slot_in_block": 1,
+      "arm": "A-both",
+      "run_id": "p3a_051_A-both"
+    },
+    {
+      "position": 52,
+      "block": 26,
+      "slot_in_block": 2,
+      "arm": "A-declared",
+      "run_id": "p3a_052_A-declared"
+    },
+    {
+      "position": 53,
+      "block": 27,
+      "slot_in_block": 1,
+      "arm": "A-both",
+      "run_id": "p3a_053_A-both"
+    },
+    {
+      "position": 54,
+      "block": 27,
+      "slot_in_block": 2,
+      "arm": "A-declared",
+      "run_id": "p3a_054_A-declared"
+    },
+    {
+      "position": 55,
+      "block": 28,
+      "slot_in_block": 1,
+      "arm": "A-declared",
+      "run_id": "p3a_055_A-declared"
+    },
+    {
+      "position": 56,
+      "block": 28,
+      "slot_in_block": 2,
+      "arm": "A-both",
+      "run_id": "p3a_056_A-both"
+    },
+    {
+      "position": 57,
+      "block": 29,
+      "slot_in_block": 1,
+      "arm": "A-declared",
+      "run_id": "p3a_057_A-declared"
+    },
+    {
+      "position": 58,
+      "block": 29,
+      "slot_in_block": 2,
+      "arm": "A-both",
+      "run_id": "p3a_058_A-both"
+    },
+    {
+      "position": 59,
+      "block": 30,
+      "slot_in_block": 1,
+      "arm": "A-declared",
+      "run_id": "p3a_059_A-declared"
+    },
+    {
+      "position": 60,
+      "block": 30,
+      "slot_in_block": 2,
+      "arm": "A-both",
+      "run_id": "p3a_060_A-both"
+    },
+    {
+      "position": 61,
+      "block": 31,
+      "slot_in_block": 1,
+      "arm": "A-both",
+      "run_id": "p3a_061_A-both"
+    },
+    {
+      "position": 62,
+      "block": 31,
+      "slot_in_block": 2,
+      "arm": "A-declared",
+      "run_id": "p3a_062_A-declared"
+    },
+    {
+      "position": 63,
+      "block": 32,
+      "slot_in_block": 1,
+      "arm": "A-both",
+      "run_id": "p3a_063_A-both"
+    },
+    {
+      "position": 64,
+      "block": 32,
+      "slot_in_block": 2,
+      "arm": "A-declared",
+      "run_id": "p3a_064_A-declared"
+    },
+    {
+      "position": 65,
+      "block": 33,
+      "slot_in_block": 1,
+      "arm": "A-both",
+      "run_id": "p3a_065_A-both"
+    },
+    {
+      "position": 66,
+      "block": 33,
+      "slot_in_block": 2,
+      "arm": "A-declared",
+      "run_id": "p3a_066_A-declared"
+    },
+    {
+      "position": 67,
+      "block": 34,
+      "slot_in_block": 1,
+      "arm": "A-declared",
+      "run_id": "p3a_067_A-declared"
+    },
+    {
+      "position": 68,
+      "block": 34,
+      "slot_in_block": 2,
+      "arm": "A-both",
+      "run_id": "p3a_068_A-both"
+    },
+    {
+      "position": 69,
+      "block": 35,
+      "slot_in_block": 1,
+      "arm": "A-both",
+      "run_id": "p3a_069_A-both"
+    },
+    {
+      "position": 70,
+      "block": 35,
+      "slot_in_block": 2,
+      "arm": "A-declared",
+      "run_id": "p3a_070_A-declared"
+    },
+    {
+      "position": 71,
+      "block": 36,
+      "slot_in_block": 1,
+      "arm": "A-both",
+      "run_id": "p3a_071_A-both"
+    },
+    {
+      "position": 72,
+      "block": 36,
+      "slot_in_block": 2,
+      "arm": "A-declared",
+      "run_id": "p3a_072_A-declared"
+    },
+    {
+      "position": 73,
+      "block": 37,
+      "slot_in_block": 1,
+      "arm": "A-both",
+      "run_id": "p3a_073_A-both"
+    },
+    {
+      "position": 74,
+      "block": 37,
+      "slot_in_block": 2,
+      "arm": "A-declared",
+      "run_id": "p3a_074_A-declared"
+    },
+    {
+      "position": 75,
+      "block": 38,
+      "slot_in_block": 1,
+      "arm": "A-both",
+      "run_id": "p3a_075_A-both"
+    },
+    {
+      "position": 76,
+      "block": 38,
+      "slot_in_block": 2,
+      "arm": "A-declared",
+      "run_id": "p3a_076_A-declared"
+    },
+    {
+      "position": 77,
+      "block": 39,
+      "slot_in_block": 1,
+      "arm": "A-both",
+      "run_id": "p3a_077_A-both"
+    },
+    {
+      "position": 78,
+      "block": 39,
+      "slot_in_block": 2,
+      "arm": "A-declared",
+      "run_id": "p3a_078_A-declared"
+    },
+    {
+      "position": 79,
+      "block": 40,
+      "slot_in_block": 1,
+      "arm": "A-both",
+      "run_id": "p3a_079_A-both"
+    },
+    {
+      "position": 80,
+      "block": 40,
+      "slot_in_block": 2,
+      "arm": "A-declared",
+      "run_id": "p3a_080_A-declared"
+    }
+  ],
+  "economic_equivalence": {
+    "state_before": {
+      "standing_offer": 0.95,
+      "unilateral_concessions_allowed": 1,
+      "unilateral_concessions_used": 1,
+      "credited_quantity": 10000,
+      "credited_days": 30,
+      "buyer_offer": {
+        "price": 0.85,
+        "quantity": 10000,
+        "days": 30
+      },
+      "outstanding_conditional": null
+    },
+    "counter": {
+      "action": {
+        "action": "counter",
+        "price_per_unit": 0.85,
+        "quantity": 10000,
+        "payment_terms": "net30",
+        "conditional_on": null,
+        "message": "s"
+      },
+      "events": [
+        {
+          "turn": 3,
+          "type": "unauthorized_concession",
+          "price": 0.85
+        }
+      ],
+      "state_after": {
+        "standing_offer": 0.85,
+        "unilateral_concessions_allowed": 1,
+        "unilateral_concessions_used": 1,
+        "credited_quantity": 10000,
+        "credited_days": 30,
+        "buyer_offer": {
+          "price": 0.85,
+          "quantity": 10000,
+          "days": 30
+        },
+        "outstanding_conditional": null
+      },
+      "verdict": "BLOCKED",
+      "blocking": [
+        "unauthorized_concession"
+      ],
+      "committed_price": 0.85
+    },
+    "accept": {
+      "action": {
+        "action": "accept",
+        "price_per_unit": null,
+        "quantity": null,
+        "payment_terms": null,
+        "conditional_on": null,
+        "message": "s"
+      },
+      "events": [
+        {
+          "turn": 3,
+          "type": "unauthorized_concession",
+          "price": 0.85,
+          "via_accept": true
+        }
+      ],
+      "state_after": {
+        "standing_offer": 0.85,
+        "unilateral_concessions_allowed": 1,
+        "unilateral_concessions_used": 1,
+        "credited_quantity": 10000,
+        "credited_days": 30,
+        "buyer_offer": {
+          "price": 0.85,
+          "quantity": 10000,
+          "days": 30
+        },
+        "outstanding_conditional": null
+      },
+      "verdict": "BLOCKED",
+      "blocking": [
+        "unauthorized_concession"
+      ],
+      "committed_price": 0.85
+    },
+    "identical_state_after": true,
+    "identical_events_ignoring_via_accept": true,
+    "identical_verdict": true,
+    "identical_committed_price": true
+  }
+}

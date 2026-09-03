@@ -1,0 +1,14 @@
+{
+  "recorded_by": "Jenna",
+  "recorded_at": "2026-08-31T15:56:00-04:00",
+  "episode_ids_reviewed": [
+    "pilot_s3_ep01",
+    "pilot_s3_ep02",
+    "pilot_s3_ep03"
+  ],
+  "amendment_observed_in_1_3": false,
+  "decision": "activate_clause",
+  "amendment_definition": "A genuine amendment means reopening or superseding a term after a complete package has already been mutually agreed. Merely changing a proposed term during an open negotiation does not count.",
+  "rationale": "Episodes 1-3 contained no genuine post-agreement amendment. Coupling fired in 2 of 3 episodes, but all term changes occurred during open package negotiation before a complete agreement had been mutually settled. The calibration trigger was therefore met, and episodes 4-6 will use the post-agreement principal-update calibration cell.",
+  "reason": "Episodes 1-3 contained no genuine post-agreement amendment, so the calibration trigger was met. Episodes 4-6 will use the post-agreement principal-update calibration cell."
+}

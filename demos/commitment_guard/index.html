@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Commitment Guard — Prototype</title>
+<style>
+/* ── Commitment Guard · prototype frame ───────────────────────────────────
+   One 1440×900 presentation frame. The page never scrolls. Visual tokens
+   follow the passport-negotiation reference (Kite purple, verify green,
+   warn amber, danger red, hairline cards, mono numerals, pill shapes,
+   narration-bar structure) — restrained down to what a one-guard, one-trace
+   internal demo needs. This is not the negotiation_prototype A/B layout:
+   there is one negotiation, one boundary, and a fixed evaluation pipeline.
+   ────────────────────────────────────────────────────────────────────── */
+:root{
+  --page:#e8e4dc; --surface:#f2eee6; --card:#ffffff;
+  --ink:#20243a; --ink-deep:#141b33; --muted:#6b6a63; --faint:#9a958a;
+  --kite:#5b3fd4; --kite-soft:#efeafd; --kite-deep:#33208f; --kite-line:#cfc2f4;
+  --verify:#3e6b1f; --verify-soft:#eef3e4; --verify-line:#d6e0c2;
+  --warn-ink:#8a5a00; --warn-bg:#fbf6ec; --warn-line:#e8dcc0;
+  --danger:#a02318; --danger-bg:#fdf1ee; --danger-line:#e5c8c2;
+  --line:#dcd6c9; --chip:#f6f3ec;
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  --radius:12px; --shadow:0 2px 14px rgba(32,25,10,.14);
+}
+*{box-sizing:border-box; margin:0}
+html,body{height:100%; overflow:hidden}
+body{
+  background:var(--page); color:var(--ink); font-family:var(--font);
+  font-size:13px; line-height:1.45; -webkit-font-smoothing:antialiased;
+  font-variant-numeric:tabular-nums;
+}
+button{font:inherit; cursor:pointer}
+.mono{font-family:var(--mono); font-variant-numeric:tabular-nums}
+.microlabel{font-size:10px; font-weight:800; letter-spacing:.09em; text-transform:uppercase}
+.card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius)}
+.app{height:100%; display:grid; grid-template-rows:auto auto 1fr auto; overflow:hidden}
+
+/* ── header ─────────────────────────────────────────────────────────────── */
+.head{
+  height:50px; display:flex; align-items:center; gap:16px; padding:0 24px;
+  background:var(--surface); border-bottom:1px solid var(--line);
+}
+.head h1{font-size:14.5px; font-weight:800; color:var(--ink-deep)}
+.head .ref{font-size:11px; color:var(--muted)}
+.head .chip{
+  display:inline-flex; align-items:center; gap:7px; border:1px solid var(--kite-line);
+  background:var(--kite-soft); color:var(--kite-deep); border-radius:999px;
+  padding:4px 11px; font-size:11px; font-weight:700; margin-left:auto;
+}
+.head .chip .dot{width:6px; height:6px; border-radius:50%; background:var(--kite)}
+.head .scope{font-size:10.5px; color:var(--faint)}
+
+/* ── pipeline rail ──────────────────────────────────────────────────────── */
+.rail{
+  display:flex; align-items:center; justify-content:center; gap:0;
+  padding:10px 24px; background:var(--card); border-bottom:1px solid var(--line);
+}
+.rnode{
+  display:flex; align-items:center; gap:8px; padding:6px 14px; border-radius:999px;
+  border:1px solid var(--line); background:var(--chip); color:var(--faint);
+  font-size:11.5px; font-weight:700; transition:all .25s ease;
+}
+.rnode .n{width:17px; height:17px; border-radius:50%; background:var(--line); color:#fff;
+  font-size:9.5px; font-weight:800; display:flex; align-items:center; justify-content:center;
+  font-family:var(--mono);}
+.rnode.active{border-color:var(--kite-line); background:var(--kite-soft); color:var(--kite-deep)}
+.rnode.active .n{background:var(--kite)}
+.rnode.done{color:var(--ink); background:var(--card)}
+.rnode.done .n{background:var(--ink); }
+.rarrow{color:var(--faint); font-size:13px; padding:0 8px}
+
+/* ── stage ──────────────────────────────────────────────────────────────── */
+.stage{padding:20px 30px; min-height:0; overflow-y:auto; overflow-x:hidden; display:flex; align-items:center; justify-content:center}
+.stage-inner{width:100%; max-width:1040px; max-height:100%}
+
+/* term rows shared by mandate / state cards */
+.term-row{display:flex; justify-content:space-between; gap:14px; padding:7px 0; border-bottom:1px solid #eeeae0; font-size:13px}
+.term-row:last-child{border-bottom:none}
+.term-label{color:var(--muted); font-size:12px}
+.term-value{font-weight:650; color:var(--ink-deep); text-align:right}
+.term-value.num{font-family:var(--mono)}
+
+/* pill */
+.pill{display:inline-flex; align-items:center; gap:5px; border-radius:999px; padding:3px 10px;
+  font-size:10px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; white-space:nowrap}
+.pill-kite{background:var(--kite-soft); color:var(--kite-deep)}
+.pill-ok{background:var(--verify-soft); color:var(--verify)}
+.pill-warn{background:var(--warn-bg); color:var(--warn-ink)}
+.pill-bad{background:var(--danger-bg); color:var(--danger)}
+.pill-quiet{background:var(--chip); color:var(--muted)}
+
+/* ── beat 1 · mandate ───────────────────────────────────────────────────── */
+.mandate{padding:20px 26px; box-shadow:var(--shadow)}
+.mandate-head{display:flex; align-items:center; gap:9px; padding-bottom:11px; border-bottom:1px solid var(--line); margin-bottom:4px}
+.mandate-head h2{font-size:15.5px; font-weight:700; color:var(--ink-deep)}
+.lock{color:var(--kite-deep); font-size:11px}
+.mandate-note{margin-top:12px; padding-top:11px; border-top:1px dashed var(--line); font-size:12px; color:var(--muted); line-height:1.55}
+.mandate-src{margin-top:10px; font-size:10.5px; color:var(--faint)}
+
+/* ── beat 2 · state ─────────────────────────────────────────────────────── */
+.statecard{padding:18px 24px; box-shadow:var(--shadow)}
+.statecard .sc-head{display:flex; align-items:center; justify-content:space-between; padding-bottom:10px; border-bottom:1px solid var(--line); margin-bottom:4px}
+.statecard .sc-head h2{font-size:14.5px; font-weight:700; color:var(--ink-deep)}
+.quote-strip{margin-top:12px; padding:9px 13px; background:var(--chip); border-radius:9px; font-size:11.5px; color:var(--muted); font-style:italic}
+
+/* ── beat 3 · agent action ──────────────────────────────────────────────── */
+.actionwrap{display:flex; flex-direction:column; align-items:center; gap:16px}
+.actionhero{padding:26px 34px; box-shadow:var(--shadow); text-align:center; min-width:440px}
+.actionhero .tag{margin-bottom:12px}
+.act-line{font-size:34px; font-weight:800; letter-spacing:-.02em; color:var(--ink-deep); font-family:var(--mono)}
+.act-sub{margin-top:8px; font-size:13px; color:var(--muted)}
+.actionhero .quote{margin-top:16px; padding-top:14px; border-top:1px solid var(--line); font-size:12.5px; color:#3e434a; font-style:italic}
+.routecue{display:flex; align-items:center; gap:8px; font-size:12px; color:var(--kite-deep); font-weight:700}
+
+/* ── beat 4 · guard ─────────────────────────────────────────────────────── */
+.guardgrid{display:grid; grid-template-columns:270px 1fr; gap:16px; align-items:start; max-height:100%}
+.proposed{padding:13px 16px}
+.proposed .pl{font-size:10.5px; color:var(--muted); margin-bottom:6px}
+.proposed .pv{font-size:18px; font-weight:800; color:var(--ink-deep); font-family:var(--mono)}
+.proposed .ps{margin-top:4px; font-size:12px; color:var(--muted)}
+.authority{padding:11px 16px 13px}
+.authority .al{font-size:10.5px; color:var(--muted); margin-bottom:6px}
+.chk{display:flex; align-items:baseline; gap:9px; padding:3px 0; font-size:12px}
+.chk .ic{width:14px; flex:0 0 14px; text-align:center; font-size:11px}
+.chk.ok .ic{color:var(--verify)}
+.chk.warn .ic{color:var(--warn-ink)}
+.decision-box{margin-top:10px; padding:11px 15px; border-radius:9px; border:1px solid var(--warn-line); background:var(--warn-bg)}
+.decision-box .db-top{display:flex; align-items:center; gap:10px; margin-bottom:5px}
+.decision-box .db-badge{font-size:12.5px; font-weight:900; letter-spacing:.05em; color:var(--warn-ink)}
+.decision-box .db-reason{font-size:12px; color:#6b5324; line-height:1.42}
+.withheld-note{margin-top:8px; padding:8px 12px; border-radius:8px; background:var(--card); border:1px solid var(--line); font-size:11.5px; color:var(--ink); line-height:1.42}
+.beforeafter{display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:8px}
+.ba-col{border:1px solid var(--line); border-radius:8px; padding:7px 10px; background:var(--chip)}
+.ba-col .bl{font-size:9.5px; color:var(--muted); font-weight:800; letter-spacing:.06em; text-transform:uppercase; margin-bottom:4px}
+.ba-row{display:flex; justify-content:space-between; font-size:11px; padding:1.5px 0; color:var(--ink)}
+.ba-row .k{color:var(--muted)}
+details.evidence{margin-top:8px; border:1px dashed var(--line); border-radius:9px; padding:7px 13px; background:var(--surface)}
+details.evidence summary{cursor:pointer; font-size:11px; font-weight:700; color:var(--muted); letter-spacing:.03em}
+details.evidence pre{margin-top:7px; font-family:var(--mono); font-size:10px; color:var(--ink); white-space:pre-wrap; line-height:1.4; max-height:90px; overflow-y:auto}
+
+/* ── beat 5 · continuation ──────────────────────────────────────────────── */
+.synthbanner{
+  display:flex; align-items:center; justify-content:center; gap:8px; margin-bottom:14px;
+  padding:8px 16px; border:1px dashed var(--muted); border-radius:999px; background:var(--chip);
+  font-size:10.5px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--muted);
+}
+.holdcard{padding:22px 28px; box-shadow:var(--shadow); text-align:center}
+.holdcard .hv{font-size:26px; font-weight:800; color:var(--ink-deep); font-family:var(--mono)}
+.holdcard .hs{margin-top:6px; font-size:12.5px; color:var(--muted)}
+.holdcard .hq{margin-top:14px; padding-top:13px; border-top:1px solid var(--line); font-size:12.5px; color:#3e434a; font-style:italic}
+.otherpaths{margin-top:14px; font-size:11.5px; color:var(--faint)}
+.otherpaths .op-h{font-size:10px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:var(--faint); margin-bottom:5px}
+.otherpaths ul{list-style:none; display:flex; flex-direction:column; gap:3px}
+.otherpaths li{padding-left:12px; position:relative}
+.otherpaths li::before{content:'—'; position:absolute; left:0; color:var(--line)}
+
+/* ── beat 6 · what changed ──────────────────────────────────────────────── */
+.contrast{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+.ccard{padding:16px 19px}
+.ccard .cl{font-size:10.5px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin-bottom:8px}
+.ccard.exp .cl{color:var(--muted)}
+.ccard.proto .cl{color:var(--kite-deep)}
+.ccard p{font-size:13px; color:var(--ink); line-height:1.5}
+.claims{margin-top:16px; display:flex; flex-direction:column; gap:10px}
+.claim{display:flex; align-items:center; gap:12px; padding:12px 16px; border-radius:10px; border:1px solid var(--line)}
+.claim.evidence{background:var(--verify-soft); border-color:var(--verify-line)}
+.claim.hypothesis{background:var(--kite-soft); border-color:var(--kite-line)}
+.claim .ctext{font-size:13px; font-weight:650; color:var(--ink-deep); flex:1}
+.guardrail{margin-top:16px; padding:11px 15px; border-radius:9px; background:var(--chip); border:1px solid var(--line); font-size:11.5px; color:var(--muted); line-height:1.55; font-style:italic}
+
+/* ── narration bar ──────────────────────────────────────────────────────── */
+.bar-n{
+  border-top:1px solid var(--line); background:var(--surface);
+  padding:11px 24px 10px; display:grid; grid-template-columns:130px 1fr auto; gap:20px; align-items:center;
+}
+.nb-n{font-family:var(--mono); font-size:10.5px; color:var(--faint); letter-spacing:.04em}
+.nb-cat{
+  align-self:flex-start; margin-top:5px; font-size:9.5px; font-weight:800; letter-spacing:.07em;
+  text-transform:uppercase; padding:2.5px 9px; border-radius:100px; border:1px solid; display:inline-block;
+}
+.nb-title{font-size:15px; font-weight:700; letter-spacing:-.01em; color:var(--ink-deep)}
+.nb-body{margin-top:3px; font-size:12px; color:var(--muted); line-height:1.4}
+.nb-right{display:flex; flex-direction:column; align-items:flex-end; gap:8px}
+.chips{display:flex; gap:4px}
+.chip-n{width:22px; height:22px; border-radius:50%; border:1px solid var(--line); background:var(--card);
+  color:var(--faint); font-size:10.5px; font-family:var(--mono); padding:0}
+.chip-n.past{color:var(--ink); background:var(--chip)}
+.chip-n.current{background:var(--kite); color:#fff; border-color:var(--kite); font-weight:700}
+.nav{display:flex; gap:7px}
+.nav button{padding:7px 15px; border-radius:999px; border:1px solid var(--line); background:#fff; font-size:12px; font-weight:600; color:var(--muted)}
+.nav button:hover:not(:disabled){background:var(--chip)}
+.nav button:disabled{opacity:.4}
+.nav .go{background:var(--kite); color:#fff; border-color:var(--kite); font-weight:700}
+.nav .go:hover:not(:disabled){opacity:.9}
+.nav .go:disabled{background:#cfc6ea; border-color:#cfc6ea}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <header class="head">
+    <h1>Commitment Guard</h1>
+    <span class="ref mono" id="hd-ref"></span>
+    <span class="scope">v1 prototype · not a new experiment · no model calls</span>
+    <span class="chip"><span class="dot"></span>Seller — Packaging Manufacturer</span>
+  </header>
+
+  <div class="rail" id="rail"></div>
+
+  <main class="stage"><div class="stage-inner" id="stage"></div></main>
+
+  <section class="bar-n">
+    <div>
+      <div class="nb-n" id="nb-n"></div>
+      <div class="nb-cat" id="nb-cat"></div>
+    </div>
+    <div>
+      <div class="nb-title" id="nb-title"></div>
+      <div class="nb-body" id="nb-body"></div>
+    </div>
+    <div class="nb-right">
+      <div class="chips" id="chips"></div>
+      <div class="nav">
+        <button id="back">← Back</button>
+        <button id="next" class="go">Next ▸</button>
+        <button id="reset">Restart</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script src="data.js"></script>
+<script>
+(function(){
+var D = window.DATA;
+
+var NODES = ['Principal Mandate','Agent Action','Commitment Guard','Committed / Withheld'];
+var ACTIVE_NODE = [0,0,1,2,3,3]; // per beat index (0-based)
+
+var CATS = {
+  'Mandate':'#33208f','State':'#6b6a63','Action':'#5b3fd4',
+  'Guard':'#8a5a00','Continuation':'#6b6a63','Result':'#141b33'
+};
+
+var BEATS = [
+  {cat:'Mandate', title:'The seller principal’s bounded authority',
+   body:'Delegated authority, not a preference: one free price cut, a hard floor, and any further cut needs something back.'},
+  {cat:'State', title:'State accumulated from the recorded negotiation',
+   body:'Immediately before the residual failure in run '+D.run_id+'. Every figure here is a stored value, not a projection.'},
+  {cat:'Action', title:'The agent attempts a commitment',
+   body:'This is the action the seller actually took in the frozen run — an ACCEPT, which commits to the buyer’s package exactly as offered.'},
+  {cat:'Guard', title:'Commitment Guard evaluates it before it commits',
+   body:'Deterministic rules, no LLM judge. The action is routed through the guard before it becomes the principal’s standing offer.'},
+  {cat:'Continuation', title:'What the mandate still permits',
+   body:'Clearly marked as a prototype continuation — the recorded trace ends at the withheld accept. This is authored, not replayed.'},
+  {cat:'Result', title:'What changed, and what didn’t',
+   body:'Measurement moved earlier. Whether that prevents drift in production is a hypothesis, not something this experiment tested.'}
+];
+
+var idx = 0;
+var hash = /s=(\d+)/.exec(location.hash||'');
+if(hash) idx = Math.max(0, Math.min(BEATS.length-1, parseInt(hash[1],10)));
+
+function el(t,c,x){var n=document.createElement(t); if(c)n.className=c; if(x!=null)n.textContent=x; return n;}
+function money(v){return '$'+Number(v).toFixed(2);}
+function row(label,value,cls){
+  var r=el('div','term-row');
+  r.appendChild(el('span','term-label',label));
+  r.appendChild(el('span','term-value'+(cls?' '+cls:''),value));
+  return r;
+}
+
+/* ── pipeline rail ──────────────────────────────────────────────────────── */
+function renderRail(){
+  var rail = document.getElementById('rail');
+  rail.innerHTML='';
+  var active = ACTIVE_NODE[idx];
+  NODES.forEach(function(name,i){
+    if(i>0) rail.appendChild(el('span','rarrow','→'));
+    var cls='rnode'+(i===active?' active':(i<active?' done':''));
+    var n=el('div',cls);
+    var dot=el('span','n', i<active ? '✓' : String(i+1));
+    n.appendChild(dot);
+    n.appendChild(el('span',null,name));
+    rail.appendChild(n);
+  });
+}
+
+/* ── beat 1 · mandate ───────────────────────────────────────────────────── */
+function viewMandate(){
+  var w = el('div','stage-inner');
+  var c = el('div','card mandate');
+  var h = el('div','mandate-head');
+  h.appendChild(el('span','lock','\u{1F512}'));
+  h.appendChild(el('h2',null,'Seller mandate — packaging manufacturer'));
+  c.appendChild(h);
+  c.appendChild(el('div','microlabel', 'Private to seller · delegated authority'));
+  var body = el('div'); body.style.marginTop='10px';
+  body.appendChild(row('Hard floor', money(D.mandate.hard_floor)+' /unit','num'));
+  body.appendChild(row('Unilateral concessions allowed', String(D.mandate.unilateral_concessions_allowed)));
+  body.appendChild(row('Further price reductions', 'require new reciprocal value — quantity above credited level, or faster payment'));
+  body.appendChild(row('Buyer value ceiling', 'the same value can authorize at most one concession, ever'));
+  c.appendChild(body);
+  c.appendChild(el('div','mandate-note',
+    'This is the seller principal’s bounded delegation of authority — not a general negotiation preference the agent can weigh against other goals. The agent may negotiate freely within it; it may not spend past it.'));
+  c.appendChild(el('div','mandate-src', D.mandate.source));
+  w.appendChild(c);
+  return w;
+}
+
+/* ── beat 2 · accumulated state ─────────────────────────────────────────── */
+function viewState(){
+  var w = el('div','stage-inner');
+  var c = el('div','card statecard');
+  var h = el('div','sc-head');
+  h.appendChild(el('h2',null,'Commitment state — before the residual failure'));
+  var tag = el('span','pill pill-ok','Recorded'); h.appendChild(tag);
+  c.appendChild(h);
+  var s = D.state_before;
+  c.appendChild(row('Seller standing offer', money(s.seller_standing_offer)+' /unit','num'));
+  c.appendChild(row('Unilateral concession', s.unilateral_concessions_used+' / '+s.unilateral_concessions_allowed+' used'));
+  c.appendChild(row('Credited quantity', s.credited_quantity.toLocaleString()+' units','num'));
+  c.appendChild(row('Credited payment terms', 'Net '+s.credited_payment_terms,'num'));
+  c.appendChild(row('Buyer’s current offer', money(s.buyer_current_offer.price)+' · '+s.buyer_current_offer.quantity.toLocaleString()+' units · Net '+s.buyer_current_offer.days,'num'));
+  c.appendChild(row('New reciprocal value', 'none — quantity and terms already credited'));
+  c.appendChild(el('div','quote-strip', '“'+D.seller_turn4_message+'” — the turn that credited this quantity and these terms.'));
+  w.appendChild(c);
+  return w;
+}
+
+/* ── beat 3 · agent attempts commitment ─────────────────────────────────── */
+function viewAction(){
+  var w = el('div','stage-inner actionwrap');
+  var c = el('div','card actionhero');
+  c.appendChild(el('span','pill pill-ok tag','Stored action — run '+D.run_id));
+  var pa = D.proposed_action;
+  c.appendChild(el('div','act-line','ACCEPT '+money(pa.price_per_unit)+' /unit'));
+  c.appendChild(el('div','act-sub', pa.quantity.toLocaleString()+' units · Net '+pa.payment_terms.replace('net','')+' — the buyer’s package, taken exactly as offered'));
+  c.appendChild(el('div','quote', '“'+D.seller_turn5_message+'”'));
+  w.appendChild(c);
+  w.appendChild(el('div','routecue','↓ routed through the Commitment Guard before it becomes the principal’s commitment'));
+  return w;
+}
+
+/* ── beat 4 · commitment guard ──────────────────────────────────────────── */
+function viewGuard(){
+  var w = el('div','stage-inner');
+  var g = D.guard_result, s = D.state_before, pa = D.proposed_action;
+  var grid = el('div','guardgrid');
+
+  var left = el('div','card proposed');
+  left.appendChild(el('div','pl microlabel','Proposed action'));
+  left.appendChild(el('div','pv','ACCEPT '+money(pa.price_per_unit)));
+  left.appendChild(el('div','ps', pa.quantity.toLocaleString()+' units · Net '+pa.payment_terms.replace('net','')));
+  grid.appendChild(left);
+
+  var right = el('div','card authority');
+  right.appendChild(el('div','al microlabel','Current authority'));
+  function chk(cls,icon,text){ var r=el('div','chk '+cls); r.appendChild(el('span','ic',icon)); r.appendChild(el('span',null,text)); return r; }
+  right.appendChild(chk('warn','●','Unilateral concession already used ('+s.unilateral_concessions_used+'/'+s.unilateral_concessions_allowed+')'));
+  right.appendChild(chk('warn','●','Quantity already credited — '+s.credited_quantity.toLocaleString()+' units, no new value'));
+  right.appendChild(chk('warn','●','Net '+s.credited_payment_terms+' already credited — no new value'));
+  right.appendChild(chk('warn','●','No new buyer value on the table'));
+  right.appendChild(chk('ok','✓', money(pa.price_per_unit)+' is above the hard floor ('+money(s.hard_floor)+')'));
+
+  var db = el('div','decision-box');
+  var dbt = el('div','db-top');
+  dbt.appendChild(el('span','db-badge', g.decision.replace(/_/g,' ')));
+  db.appendChild(dbt);
+  db.appendChild(el('div','db-reason', '“'+g.reason+'”'));
+  right.appendChild(db);
+
+  right.appendChild(el('div','withheld-note',
+    'The action is withheld. The principal’s standing commitment remains '+money(s.seller_standing_offer)+'/unit. No authorization state changes.'));
+
+  var ba = el('div','beforeafter');
+  [['State before',g.state_before],['State after (unchanged)',g.state_after]].forEach(function(pair){
+    var col = el('div','ba-col');
+    col.appendChild(el('div','bl',pair[0]));
+    var st = pair[1];
+    [['Standing offer',money(st.seller_standing_offer)],
+     ['Concession used',st.unilateral_concessions_used+'/'+st.unilateral_concessions_allowed],
+     ['Credited qty',st.credited_quantity.toLocaleString()],
+     ['Credited terms','Net '+st.credited_payment_terms]
+    ].forEach(function(kv){
+      var r=el('div','ba-row'); r.appendChild(el('span','k',kv[0])); r.appendChild(el('span',null,kv[1])); col.appendChild(r);
+    });
+    ba.appendChild(col);
+  });
+  right.appendChild(ba);
+
+  var det = document.createElement('details'); det.className='evidence';
+  var sum = document.createElement('summary'); sum.textContent='Evidence record (audit detail)';
+  det.appendChild(sum);
+  var pre = document.createElement('pre');
+  pre.textContent = JSON.stringify(D.evidence, null, 2);
+  det.appendChild(pre);
+  right.appendChild(det);
+
+  grid.appendChild(right);
+  w.appendChild(grid);
+  return w;
+}
+
+/* ── beat 5 · allowed next action ───────────────────────────────────────── */
+function viewContinuation(){
+  var w = el('div','stage-inner');
+  w.appendChild(el('div','synthbanner', D.continuation.label));
+  var c = el('div','card holdcard');
+  c.appendChild(el('div','hv','HOLD '+money(D.continuation.held_price)));
+  c.appendChild(el('div','hs','12,000 units · Net 15 — requires additional buyer value before reducing price further'));
+  c.appendChild(el('div','hq','“'+D.continuation.message+'”'));
+  w.appendChild(c);
+  var op = el('div','otherpaths');
+  op.appendChild(el('div','op-h','Also permitted — not played out here'));
+  var ul = document.createElement('ul');
+  D.continuation.other_paths.forEach(function(p){ ul.appendChild(el('li',null,p)); });
+  op.appendChild(ul);
+  op.appendChild(el('div',null, D.continuation.note));
+  w.appendChild(op);
+  return w;
+}
+
+/* ── beat 6 · what changed ──────────────────────────────────────────────── */
+function viewResult(){
+  var w = el('div','stage-inner');
+  var contrast = el('div','contrast');
+  var e = el('div','card ccard exp');
+  e.appendChild(el('div','cl','Experiment'));
+  e.appendChild(el('p',null,'Authorization was scored after the action happened. The frozen tracker classified this same accept as “'+D.experiment_classification.type+'” — once it had already committed the principal.'));
+  var p = el('div','card ccard proto');
+  p.appendChild(el('div','cl','Prototype'));
+  p.appendChild(el('p',null,'Authorization is evaluated before the action becomes a commitment. The same action is withheld instead, with the reason visible.'));
+  contrast.appendChild(e); contrast.appendChild(p);
+  w.appendChild(contrast);
+
+  var claims = el('div','claims');
+  var c1 = el('div','claim evidence');
+  c1.appendChild(el('span','pill pill-ok','Evidence'));
+  c1.appendChild(el('span','ctext','Visible state → improved behavior'));
+  var c2 = el('div','claim hypothesis');
+  c2.appendChild(el('span','pill pill-kite','Hypothesis — not tested'));
+  c2.appendChild(el('span','ctext','Pre-commit guard → product hypothesis for deterministic enforcement'));
+  claims.appendChild(c1); claims.appendChild(c2);
+  w.appendChild(claims);
+
+  w.appendChild(el('div','guardrail',
+    'Implemented against the same frozen mandate semantics used to score the experiment. This prototype does not show that enforcement works in production, and the experiment itself did not test enforcement — it tested whether visible state changes behavior.'));
+  return w;
+}
+
+var VIEWS = [viewMandate, viewState, viewAction, viewGuard, viewContinuation, viewResult];
+
+/* ── render ─────────────────────────────────────────────────────────────── */
+function render(){
+  document.getElementById('hd-ref').textContent = D.run_id+' · turn 5';
+  renderRail();
+  var stage = document.getElementById('stage');
+  stage.innerHTML=''; stage.appendChild(VIEWS[idx]());
+
+  var b = BEATS[idx];
+  document.getElementById('nb-n').textContent = 'BEAT '+(idx+1)+' / '+BEATS.length;
+  var cat = document.getElementById('nb-cat');
+  cat.textContent = b.cat; cat.style.color = CATS[b.cat]; cat.style.borderColor = CATS[b.cat]+'55';
+  document.getElementById('nb-title').textContent = b.title;
+  document.getElementById('nb-body').textContent = b.body;
+
+  var chips = document.getElementById('chips'); chips.innerHTML='';
+  BEATS.forEach(function(_,i){
+    var btn = el('button','chip-n '+(i===idx?'current':i<idx?'past':''), String(i+1));
+    btn.onclick=function(){ idx=i; render(); };
+    chips.appendChild(btn);
+  });
+  document.getElementById('back').disabled = idx<=0;
+  document.getElementById('next').disabled = idx>=BEATS.length-1;
+}
+
+document.getElementById('next').onclick=function(){ if(idx<BEATS.length-1){idx++;render();} };
+document.getElementById('back').onclick=function(){ if(idx>0){idx--;render();} };
+document.getElementById('reset').onclick=function(){ idx=0; render(); };
+document.addEventListener('keydown',function(e){
+  if(e.key==='ArrowRight'||e.key==='Enter'){e.preventDefault();document.getElementById('next').click();}
+  if(e.key==='ArrowLeft'){e.preventDefault();document.getElementById('back').click();}
+  if(e.key==='Escape'){idx=0;render();}
+});
+
+render();
+})();
+</script>
+</body>
+</html>

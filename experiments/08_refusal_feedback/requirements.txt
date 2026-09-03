@@ -1,0 +1,8 @@
+# pinned to the exact SDK used for the valid v1.1 pilot (2026-08-25).
+#
+# this pin is a freeze artifact, not a convenience. anthropic 1.0.0 removed the
+# `temperature` argument from Messages.create, which the frozen agents.py passes
+# per spec §13. installing an unpinned SDK therefore either fails outright or,
+# in future versions, could silently alter sampling. do not bump without
+# creating a new experiment version.
+anthropic==0.125.0

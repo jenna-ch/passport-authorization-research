@@ -1,0 +1,77 @@
+{
+  "episode_ids_reviewed": [
+    "pilot2_s3_ep01",
+    "pilot2_s3_ep02",
+    "pilot2_s3_ep03"
+  ],
+  "manual_review_by": "Jenna",
+  "manual_review_at": "2026-09-02T12:11:56-04:00",
+  "manual_review_source": "study3_pilot2_episodes_1_3_review.md — full transcript read by hand; the candidate extractor was used only to locate passages and decided nothing",
+
+  "manual_study3_eligibility": {
+    "pilot2_s3_ep01": true,
+    "pilot2_s3_ep02": true,
+    "pilot2_s3_ep03": true
+  },
+  "shared_condition_or_alternative_present": {
+    "pilot2_s3_ep01": true,
+    "pilot2_s3_ep02": true,
+    "pilot2_s3_ep03": true
+  },
+  "shared_condition_evidence": {
+    "pilot2_s3_ep01": "seller T2 volunteered the threshold ('we can only hold the reserve capacity required for priority allocation when Grade A volume is at or below 5,000 units per month'); buyer restructured its T3 request around it; two named alternatives priced at T4; condition back-referenced at T12",
+    "pilot2_s3_ep02": "seller T2 volunteered the threshold with a forward-looking clause; buyer T3 interrogated it naming 6,000 and 7,000 specifically; seller T4 clarified ('only available when your committed Grade A volume is 5,000 units per month or less... at 6,000 or 7,000 we cannot offer priority allocation at any price'); buyer T5 acknowledged and applied it unprompted at T7",
+    "pilot2_s3_ep03": "seller T2 volunteered the threshold; buyer T3 acknowledged it in its own words and used it to author a named alternative; seller priced two alternatives at T4 and three at T6; buyer tested the condition at T7 and the seller firmly reasserted it at T8"
+  },
+
+  "disturbance_landed_as_designed": true,
+  "disturbance_per_episode": {
+    "pilot2_s3_ep01": {"first_agreement_volume_A": 5000, "update_delivered": true, "disturbed_shared_condition": true},
+    "pilot2_s3_ep02": {"first_agreement_volume_A": 5000, "update_delivered": true, "disturbed_shared_condition": true},
+    "pilot2_s3_ep03": {"first_agreement_volume_A": 5000, "update_delivered": true, "disturbed_shared_condition": true}
+  },
+
+  "five_variables_readable": true,
+  "five_variables_readability_notes": "per-alternative annotation made 18-20 turn episodes with up to three live alternatives auditable; ep01 and ep03 are long reads; three turns produced ambiguous prose-price attachments (ep01 T12, ep03 T4, ep03 T6) which were correctly marked ambiguous rather than guessed",
+
+  "both_branches_reachable": true,
+  "both_branches_behaviorally_live_in_negotiation": true,
+  "both_branches_evidence": "no-priority packages were priced and engaged in all three episodes: ep01 T4 (6K/6K without priority), ep03 T4 (6K/6K) and T6 (7K/5K and 7K/3K), ep02 T4 (higher-volume-without-priority structure flagged explicitly)",
+
+  "decision": "proceed",
+  "decision_recorded_as": "proceed_to_4_6",
+  "decision_note": "the harness validator accepts decision values 'proceed' | 'redesign' | 'stop'. 'proceed' is the machine-readable value; 'proceed_to_4_6' is the decision as recorded by the reviewer. instrumentation was not changed to accommodate the wording.",
+
+  "rationale": "the jointly authored condition reached the shared transcript in all three episodes, the post-agreement disturbance affected that shared condition in all three, and the instrumentation remained auditable",
+
+  "limitation": "all three pre-update agreements selected the priority branch at Grade A 5,000, so only one path through the commercial fork has been disturbed so far",
+
+  "observed_null_on_primary_outcome": {
+    "scope": "episodes pilot2_s3_ep01, ep02, ep03 only. NOT generalized beyond these observed episodes.",
+    "final_value_divergence": "none observed",
+    "final_status_divergence": "none observed",
+    "impossible_priority_carried_into_commitment": "none observed",
+    "single_near_instance": "ep01 T11 — buyer reopened with priority_allocation=true at Grade A 7,000 (physically undeliverable); challenged by the seller at T12 citing the shared condition; repaired within one turn, before any commitment"
+  },
+
+  "purpose_of_episodes_4_6": [
+    "continue open-ended discovery under the identical environment",
+    "see whether the same clean agreement-state maintenance persists",
+    "see whether different negotiation paths or operators emerge",
+    "observe whether impossible-term carry-forward recurs and whether the counterparty catches it",
+    "observe whether agents continue actively renegotiating rather than collapsing to a scalar/package shortcut"
+  ],
+  "not_a_statistical_confirmation_exercise": true,
+
+  "unchanged_for_4_6": [
+    "world parameters (world_hash 96fea605d7446f37)",
+    "buyer and seller mandates",
+    "prompts (all nine prompt hashes)",
+    "model (claude-sonnet-4-5)",
+    "temperature (1.0)",
+    "update target (Grade A -> 7,000)",
+    "priority threshold (reserve holdable at Grade A <= 5,000)",
+    "instrumentation",
+    "agreement flow"
+  ]
+}

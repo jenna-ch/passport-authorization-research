@@ -1,0 +1,1 @@
+- if unit price has been agreed and you have not secured a flex band of at least +/-15%, you must reopen the flex band, even at the cost of reopening price
